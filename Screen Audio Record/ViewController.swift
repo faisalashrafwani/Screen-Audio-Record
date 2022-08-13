@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, AVAudioRecorderDelegate {
-
+    
     @IBOutlet weak var recordView: UIView!
     
     var recordingSession: AVAudioSession!
@@ -18,10 +18,14 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRecorderSession()
         
-        //SETTING UP RECORDING SESSION
+    }
+    
+    //SETTING UP RECORDING SESSION
+    func setupRecorderSession() {
         recordingSession = AVAudioSession.sharedInstance()
-
+        
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
@@ -33,7 +37,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
                         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
                         gestureRecognizer.numberOfTapsRequired = 1
                         gestureRecognizer.numberOfTouchesRequired = 1
-
+                        
                         //SETTING GESTURE RECOGNIZER TO FILE
                         self.recordView.addGestureRecognizer(gestureRecognizer)
                         self.recordView.isUserInteractionEnabled = true
@@ -47,27 +51,28 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             print(error)
         }
     }
+    
     //HANDLES SCREEN GESTURES
     @objc func gestureFired(_ gesture: UITapGestureRecognizer) {
         if audioRecorder == nil {
-                startRecording()
-            } else {
-                finishRecording(success: true)
-            }
+            startRecording()
+        } else {
+            finishRecording(success: true)
+        }
     }
     
     //STARTS RECORDING
     func startRecording() {
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
-
+        
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
-
+        
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
@@ -87,7 +92,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
         audioRecorder = nil
-
+        
         if success {
             print("Recording success\n")
         } else {
@@ -119,7 +124,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         dateFormatter.locale = Locale(identifier: "en_US")
         return (dateFormatter.string(from: Date()))
     }
-
-
+    
+    
 }
 
