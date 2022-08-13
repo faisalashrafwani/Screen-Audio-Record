@@ -13,6 +13,8 @@
 		845E6AE328A75E8400E3DC07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE128A75E8400E3DC07 /* Main.storyboard */; };
 		845E6AE528A75E8800E3DC07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE428A75E8800E3DC07 /* Assets.xcassets */; };
 		845E6AE828A75E8800E3DC07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE628A75E8800E3DC07 /* LaunchScreen.storyboard */; };
+		845E6AF228A79A0100E3DC07 /* recordingNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AF028A79A0000E3DC07 /* recordingNow.mp3 */; };
+		845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AF128A79A0100E3DC07 /* recordingStopped.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		845E6AE428A75E8800E3DC07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E6AE728A75E8800E3DC07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845E6AE928A75E8800E3DC07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		845E6AF028A79A0000E3DC07 /* recordingNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordingNow.mp3; sourceTree = "<group>"; };
+		845E6AF128A79A0100E3DC07 /* recordingStopped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordingStopped.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +66,19 @@
 				845E6AE128A75E8400E3DC07 /* Main.storyboard */,
 				845E6AE428A75E8800E3DC07 /* Assets.xcassets */,
 				845E6AE628A75E8800E3DC07 /* LaunchScreen.storyboard */,
+				845E6AF428A79E1100E3DC07 /* Media */,
 				845E6AE928A75E8800E3DC07 /* Info.plist */,
 			);
 			path = "Screen Audio Record";
+			sourceTree = "<group>";
+		};
+		845E6AF428A79E1100E3DC07 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				845E6AF028A79A0000E3DC07 /* recordingNow.mp3 */,
+				845E6AF128A79A0100E3DC07 /* recordingStopped.mp3 */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +139,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
 				845E6AE828A75E8800E3DC07 /* LaunchScreen.storyboard in Resources */,
 				845E6AE528A75E8800E3DC07 /* Assets.xcassets in Resources */,
 				845E6AE328A75E8400E3DC07 /* Main.storyboard in Resources */,
+				845E6AF228A79A0100E3DC07 /* recordingNow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

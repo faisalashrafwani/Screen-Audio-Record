@@ -14,6 +14,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer = AVAudioPlayer()
     
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         
     }
     
-    //SETTING UP RECORDING SESSION
+    // TODO: SETTING UP RECORDING SESSION
     func setupRecorderSession() {
         recordingSession = AVAudioSession.sharedInstance()
         
@@ -33,12 +34,12 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
                 DispatchQueue.main.async {
                     if allowed {
                         
-                        //CREATING GESTURE RECOGNIZER
+                        // TODO: CREATING GESTURE RECOGNIZER
                         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
                         gestureRecognizer.numberOfTapsRequired = 1
                         gestureRecognizer.numberOfTouchesRequired = 1
                         
-                        //SETTING GESTURE RECOGNIZER TO FILE
+                        // TODO: SETTING GESTURE RECOGNIZER TO FILE
                         self.recordView.addGestureRecognizer(gestureRecognizer)
                         self.recordView.isUserInteractionEnabled = true
                         
@@ -52,7 +53,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    //HANDLES SCREEN GESTURES
+    // TODO: HANDLES SCREEN SINGLE TAP GESTURES
     @objc func gestureFired(_ gesture: UITapGestureRecognizer) {
         if audioRecorder == nil {
             startRecording()
@@ -61,7 +62,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    //STARTS RECORDING
+    // TODO: STARTS RECORDING VOICE
     func startRecording() {
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
@@ -74,10 +75,18 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         ]
         
         do {
+            playRecordingNow()
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
-            audioRecorder.record()
+            
+            // TODO: OFFSET TIME
+            let timeOffset = audioRecorder.deviceCurrentTime + 1.0
+            
+            // TODO: RECORDS VOICE
+            audioRecorder.record(atTime: timeOffset) //DELAYS RECORDING BY 1 SECOND SO THAT VERBAL INSTRUCTIONS AREN'T RECORDED.
+            
             self.recordView.backgroundColor = UIColor.green
+            
             print("Recording in progress...\n")
             print("Start Time: \(captureDateTime)\n")
         } catch {
@@ -85,10 +94,24 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    //STOPS RECORDING
+    // TODO: VERBAL GUIDE RECORDING NOW
+    func playRecordingNow() {
+        let url = Bundle.main.url(forResource: "recordingNow", withExtension: "mp3")
+        audioPlayer = try! AVAudioPlayer(contentsOf: url!)
+        audioPlayer.play()
+    }
+    // TODO: VERBAL GUIDE RECORDING STOPPED
+    func playRecordingStopped() {
+        let url = Bundle.main.url(forResource: "recordingStopped", withExtension: "mp3")
+        audioPlayer = try! AVAudioPlayer(contentsOf: url!)
+        audioPlayer.play()
+    }
+    
+    // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
         let captureDateTime = captureDateTime()
         audioRecorder.stop()
+        playRecordingStopped()
         self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
         audioRecorder = nil
@@ -100,14 +123,14 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    //METHOD USED IF INTERRUPTIONS STOP RECORDING
+    // TODO: METHOD USED IF INTERRUPTIONS STOP RECORDING
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             finishRecording(success: false)
         }
     }
     
-    //RETURNS PATH FOR SAVING FILE
+    // TODO: RETURNS PATH FOR SAVING FILE
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
@@ -116,7 +139,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         return paths[0]
     }
     
-    //CAPTURES DATE AND TIME
+    // TODO: CAPTURES DATE AND TIME
     func captureDateTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH: mm: ssZ"
