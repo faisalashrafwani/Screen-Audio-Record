@@ -76,6 +76,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         
         do {
             playRecordingNow()
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
             
@@ -89,6 +90,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             
             print("Recording in progress...\n")
             print("Start Time: \(captureDateTime)\n")
+            
         } catch {
             finishRecording(success: false)
         }
@@ -111,6 +113,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     func finishRecording(success: Bool) {
         let captureDateTime = captureDateTime()
         audioRecorder.stop()
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         playRecordingStopped()
         self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
