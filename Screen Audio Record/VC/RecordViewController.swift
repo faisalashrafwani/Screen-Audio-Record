@@ -29,7 +29,12 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         actionButton.isEnabled = false
         actionButton.setTitle("Start Recording", for: .normal)
         setupRecorderSession()
-      
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 120) {
+          
+            self.finishRecording(success: true)
+        }
+        
         
     }
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
@@ -102,7 +107,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
-        self.imageView.image = #imageLiteral(resourceName: "recording")
+        self.imageView.image = #imageLiteral(resourceName: "recording_started")
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
         do{
@@ -157,7 +162,8 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
-        self.imageView.image = #imageLiteral(resourceName: "stop")
+        actionButton.isEnabled = false
+       self.imageView.image = #imageLiteral(resourceName: "recording_stopped")
         let captureDateTime = captureDateTime()
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)

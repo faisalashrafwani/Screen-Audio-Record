@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -16,46 +16,67 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="center" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3ai-p7-Hhq">
-                    <rect key="frame" x="20.5" y="376.5" width="373" height="153"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5oI-lT-PMb" userLabel="title Stack View">
+                    <rect key="frame" x="256" y="231" width="512" height="84"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-DO-lGs">
-                            <rect key="frame" x="0.0" y="0.0" width="373" height="31"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Tap Gesture"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose gestures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-y2-ayy" userLabel="title">
+                            <rect key="frame" x="104.5" y="0.0" width="303.5" height="50.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                            <color key="textColor" red="0.12156862745098039" green="0.11372549019607843" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose gestures that you like for your recording." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJL-IE-ayK" userLabel="sub title">
+                            <rect key="frame" x="4.5" y="58.5" width="503" height="25.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="textColor" red="0.35686274509803922" green="0.34509803921568627" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3ai-p7-Hhq">
+                    <rect key="frame" x="128" y="514.5" width="768" height="341.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-DO-lGs">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="100.5"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                            <buttonConfiguration key="configuration" style="filled" image="long-tap-gesture" title="          Two Finger Tap">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="GestureTapped:" destination="-1" eventType="touchUpInside" id="Ubj-WX-DPs"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syZ-Az-fVb">
-                            <rect key="frame" x="0.0" y="61" width="373" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syZ-Az-fVb">
+                            <rect key="frame" x="0.0" y="120.5" width="768" height="100.5"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Motion Gesture"/>
+                            <buttonConfiguration key="configuration" style="filled" image="shake-gesture" title="          Motion or Shake Gesture">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="motionGestureTapped:" destination="-1" eventType="touchUpInside" id="agB-lO-jck"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-or-SEq">
-                            <rect key="frame" x="0.0" y="122" width="373" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-or-SEq">
+                            <rect key="frame" x="0.0" y="241" width="768" height="100.5"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Record"/>
+                            <buttonConfiguration key="configuration" style="filled" image="record" title="          Record automatically for 30 Minutes">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="recordTapped:" destination="-1" eventType="touchUpInside" id="23O-xc-ZOO"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray5Color"/>
-                    <constraints>
-                        <constraint firstItem="WxM-or-SEq" firstAttribute="leading" secondItem="kmt-DO-lGs" secondAttribute="leading" id="ds5-93-yjg"/>
-                        <constraint firstItem="syZ-Az-fVb" firstAttribute="leading" secondItem="kmt-DO-lGs" secondAttribute="leading" id="l5S-OV-EPs"/>
-                        <constraint firstItem="syZ-Az-fVb" firstAttribute="trailing" secondItem="kmt-DO-lGs" secondAttribute="trailing" id="sKs-Ji-A64"/>
-                        <constraint firstItem="WxM-or-SEq" firstAttribute="trailing" secondItem="kmt-DO-lGs" secondAttribute="trailing" id="tPs-jZ-LQ6"/>
-                        <constraint firstItem="kmt-DO-lGs" firstAttribute="width" secondItem="3ai-p7-Hhq" secondAttribute="width" id="uF3-0G-dom"/>
-                    </constraints>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -63,17 +84,21 @@
             <constraints>
                 <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="CkJ-N6-mUb"/>
                 <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Dai-HA-iEI"/>
-                <constraint firstItem="3ai-p7-Hhq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="Xvw-oc-RC8"/>
+                <constraint firstItem="5oI-lT-PMb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U6i-fZ-fg9"/>
+                <constraint firstItem="5oI-lT-PMb" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.5" id="Uml-Ad-e00"/>
+                <constraint firstItem="3ai-p7-Hhq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.75" id="Xvw-oc-RC8"/>
+                <constraint firstItem="5oI-lT-PMb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.4" id="i76-pO-e13"/>
+                <constraint firstItem="3ai-p7-Hhq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="q5h-Bv-6Yt"/>
             </constraints>
             <point key="canvasLocation" x="139" y="72"/>
         </view>
     </objects>
     <resources>
+        <image name="long-tap-gesture" width="55" height="55"/>
+        <image name="record" width="52" height="52"/>
+        <image name="shake-gesture" width="52" height="52"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

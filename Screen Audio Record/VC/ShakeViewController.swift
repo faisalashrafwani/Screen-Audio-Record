@@ -31,7 +31,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.imageView.image = #imageLiteral(resourceName: "instruction2")
+        self.imageView.image = #imageLiteral(resourceName: "instuction_shake")
     }
     override var canBecomeFirstResponder: Bool {
            return true
@@ -84,7 +84,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     @objc func gestureFired(_ gesture: UITapGestureRecognizer) {
         if isFirstTime{
             isFirstTime = false
-            self.imageView.image = #imageLiteral(resourceName: "start")
+            self.imageView.image = #imageLiteral(resourceName: "start_shake")
             return
         }
         if audioRecorder == nil {
@@ -98,7 +98,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
-        self.imageView.image = #imageLiteral(resourceName: "recording")
+       self.imageView.image = #imageLiteral(resourceName: "recording_shake")
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
         do{
@@ -153,7 +153,8 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
-        self.imageView.image = #imageLiteral(resourceName: "stop")
+       self.imageView.image = #imageLiteral(resourceName: "stop_shake")
+       // self.imageView.image = #imageLiteral(resourceName: "stop")
         let captureDateTime = captureDateTime()
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
