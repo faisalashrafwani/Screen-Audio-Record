@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D72C1EA28ACD4DA00F5AB77 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */; };
+		0D72C1EB28ACD4DA00F5AB77 /* ShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */; };
+		0D72C1EE28ACD9F200F5AB77 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */; };
+		0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */; };
+		0DD8AD4C28ABB6F700823911 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8AD4B28ABB6F700823911 /* Observation.swift */; };
+		0DD8AD4F28ACBA0A00823911 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8AD4D28ACBA0A00823911 /* MainViewController.swift */; };
+		0DD8AD5028ACBA0A00823911 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8AD4E28ACBA0A00823911 /* MainViewController.xib */; };
+		0DD8AD5828ACC18B00823911 /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8AD5628ACC18B00823911 /* MotionViewController.swift */; };
+		0DD8AD5928ACC18B00823911 /* MotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8AD5728ACC18B00823911 /* MotionViewController.xib */; };
+		0DD8AD5C28ACC58E00823911 /* TapGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8AD5A28ACC58D00823911 /* TapGestureViewController.swift */; };
+		0DD8AD5D28ACC58E00823911 /* TapGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8AD5B28ACC58D00823911 /* TapGestureViewController.xib */; };
 		845E6ADC28A75E8400E3DC07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6ADB28A75E8400E3DC07 /* AppDelegate.swift */; };
 		845E6ADE28A75E8400E3DC07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6ADD28A75E8400E3DC07 /* SceneDelegate.swift */; };
-		845E6AE028A75E8400E3DC07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6ADF28A75E8400E3DC07 /* ViewController.swift */; };
 		845E6AE328A75E8400E3DC07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE128A75E8400E3DC07 /* Main.storyboard */; };
 		845E6AE528A75E8800E3DC07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE428A75E8800E3DC07 /* Assets.xcassets */; };
 		845E6AE828A75E8800E3DC07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE628A75E8800E3DC07 /* LaunchScreen.storyboard */; };
@@ -18,10 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
+		0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShakeViewController.xib; sourceTree = "<group>"; };
+		0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
+		0DD8AD4B28ABB6F700823911 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
+		0DD8AD4D28ACBA0A00823911 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0DD8AD4E28ACBA0A00823911 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		0DD8AD5628ACC18B00823911 /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
+		0DD8AD5728ACC18B00823911 /* MotionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotionViewController.xib; sourceTree = "<group>"; };
+		0DD8AD5A28ACC58D00823911 /* TapGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureViewController.swift; sourceTree = "<group>"; };
+		0DD8AD5B28ACC58D00823911 /* TapGestureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapGestureViewController.xib; sourceTree = "<group>"; };
 		845E6AD828A75E8400E3DC07 /* Screen Audio Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Screen Audio Record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E6ADB28A75E8400E3DC07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E6ADD28A75E8400E3DC07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		845E6ADF28A75E8400E3DC07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		845E6AE228A75E8400E3DC07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		845E6AE428A75E8800E3DC07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E6AE728A75E8800E3DC07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +61,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DD8AD5128ACBA2C00823911 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				0DD8AD4D28ACBA0A00823911 /* MainViewController.swift */,
+				0DD8AD5628ACC18B00823911 /* MotionViewController.swift */,
+				0DD8AD5728ACC18B00823911 /* MotionViewController.xib */,
+				0DD8AD5A28ACC58D00823911 /* TapGestureViewController.swift */,
+				0DD8AD5B28ACC58D00823911 /* TapGestureViewController.xib */,
+				0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */,
+				0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */,
+				0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */,
+				0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		0DD8AD5428ACBA5800823911 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DD8AD4E28ACBA0A00823911 /* MainViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0DD8AD5528ACBAA800823911 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		845E6ACF28A75E8400E3DC07 = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +111,13 @@
 		845E6ADA28A75E8400E3DC07 /* Screen Audio Record */ = {
 			isa = PBXGroup;
 			children = (
+				0DD8AD5528ACBAA800823911 /* New Group */,
+				0DD8AD5428ACBA5800823911 /* Views */,
+				0DD8AD5128ACBA2C00823911 /* VC */,
 				845E6ADB28A75E8400E3DC07 /* AppDelegate.swift */,
 				845E6ADD28A75E8400E3DC07 /* SceneDelegate.swift */,
-				845E6ADF28A75E8400E3DC07 /* ViewController.swift */,
 				845E6AE128A75E8400E3DC07 /* Main.storyboard */,
+				0DD8AD4B28ABB6F700823911 /* Observation.swift */,
 				845E6AE428A75E8800E3DC07 /* Assets.xcassets */,
 				845E6AE628A75E8800E3DC07 /* LaunchScreen.storyboard */,
 				845E6AF428A79E1100E3DC07 /* Media */,
@@ -139,10 +193,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DD8AD5D28ACC58E00823911 /* TapGestureViewController.xib in Resources */,
+				0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */,
 				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
+				0DD8AD5028ACBA0A00823911 /* MainViewController.xib in Resources */,
 				845E6AE828A75E8800E3DC07 /* LaunchScreen.storyboard in Resources */,
+				0DD8AD5928ACC18B00823911 /* MotionViewController.xib in Resources */,
 				845E6AE528A75E8800E3DC07 /* Assets.xcassets in Resources */,
 				845E6AE328A75E8400E3DC07 /* Main.storyboard in Resources */,
+				0D72C1EB28ACD4DA00F5AB77 /* ShakeViewController.xib in Resources */,
 				845E6AF228A79A0100E3DC07 /* recordingNow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,9 +213,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845E6AE028A75E8400E3DC07 /* ViewController.swift in Sources */,
+				0DD8AD5C28ACC58E00823911 /* TapGestureViewController.swift in Sources */,
+				0D72C1EA28ACD4DA00F5AB77 /* ShakeViewController.swift in Sources */,
+				0DD8AD4C28ABB6F700823911 /* Observation.swift in Sources */,
+				0D72C1EE28ACD9F200F5AB77 /* RecordViewController.swift in Sources */,
+				0DD8AD5828ACC18B00823911 /* MotionViewController.swift in Sources */,
 				845E6ADC28A75E8400E3DC07 /* AppDelegate.swift in Sources */,
 				845E6ADE28A75E8400E3DC07 /* SceneDelegate.swift in Sources */,
+				0DD8AD4F28ACBA0A00823911 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 357HKSRZHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Screen Audio Record/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -310,6 +375,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,6 +396,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 357HKSRZHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Screen Audio Record/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -337,6 +404,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

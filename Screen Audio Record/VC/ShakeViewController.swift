@@ -1,27 +1,54 @@
 //
-//  ViewController.swift
+//  ShakeViewController.swift
 //  Screen Audio Record
 //
-//  Created by admin on 13/08/22.
+//  Created by Umer on 17/08/22.
 //
 
 import UIKit
 import AVFoundation
+import Foundation
 
-class ViewController: UIViewController, AVAudioRecorderDelegate {
+class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var recordView: UIView!
     
+    @IBOutlet weak var imageView: UIImageView!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var audioPlayer = AVAudioPlayer()
-    
+    var isFirstTime = true
+    var observations : [Observation] = []
+    var observation = Observation()
+    var permission = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // showAlert()
+        becomeFirstResponder()
         setupRecorderSession()
+      
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.imageView.image = #imageLiteral(resourceName: "instruction2")
+    }
+    override var canBecomeFirstResponder: Bool {
+           return true
+       }
+       
+       // TODO: HANDLES SHAKE GESTURES
+       override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+           if permission == true {
+               if audioRecorder == nil {
+                   startRecording()
+               } else {
+                   finishRecording(success: true)
+               }
+           }
+       }
+       
+    
     
     // TODO: SETTING UP RECORDING SESSION
     func setupRecorderSession() {
@@ -33,15 +60,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
                     if allowed {
-                        
+                        self.permission = true
                         // TODO: CREATING GESTURE RECOGNIZER
-                        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
-                        gestureRecognizer.numberOfTapsRequired = 1
-                        gestureRecognizer.numberOfTouchesRequired = 1
-                        
-                        // TODO: SETTING GESTURE RECOGNIZER TO FILE
-                        self.recordView.addGestureRecognizer(gestureRecognizer)
-                        self.recordView.isUserInteractionEnabled = true
+//                        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
+//                        gestureRecognizer.numberOfTapsRequired = 1
+//                        gestureRecognizer.numberOfTouchesRequired = 2
+//
+//                        // TODO: SETTING GESTURE RECOGNIZER TO FILE
+//                        self.recordView.addGestureRecognizer(gestureRecognizer)
+//                        self.recordView.isUserInteractionEnabled = true
                         
                     } else {
                         print("No Permission Granted")
@@ -55,7 +82,14 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     // TODO: HANDLES SCREEN SINGLE TAP GESTURES
     @objc func gestureFired(_ gesture: UITapGestureRecognizer) {
+        if isFirstTime{
+            isFirstTime = false
+            self.imageView.image = #imageLiteral(resourceName: "start")
+            return
+        }
         if audioRecorder == nil {
+           observation = Observation()
+            
             startRecording()
         } else {
             finishRecording(success: true)
@@ -64,9 +98,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
+        self.imageView.image = #imageLiteral(resourceName: "recording")
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
-        
+        do{
+            try observation.audioPath = String(contentsOf: audioFilename)
+         
+        }catch {
+            
+        }
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
@@ -83,13 +123,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             // TODO: OFFSET TIME
             let timeOffset = audioRecorder.deviceCurrentTime + 1.0
             
+            
             // TODO: RECORDS VOICE
             audioRecorder.record(atTime: timeOffset) //DELAYS RECORDING BY 1 SECOND SO THAT VERBAL INSTRUCTIONS AREN'T RECORDED.
             
-            self.recordView.backgroundColor = UIColor.green
+            //self.recordView.backgroundColor = UIColor.green
             
             print("Recording in progress...\n")
             print("Start Time: \(captureDateTime)\n")
+            observation.startDate = captureDateTime
             
         } catch {
             finishRecording(success: false)
@@ -111,12 +153,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
+        self.imageView.image = #imageLiteral(resourceName: "stop")
         let captureDateTime = captureDateTime()
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         playRecordingStopped()
-        self.recordView.backgroundColor = UIColor.red
+       // self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
+        observation.endDate = captureDateTime
+        observations.append(observation)
         audioRecorder = nil
         
         if success {
@@ -131,6 +176,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         if !flag {
             finishRecording(success: false)
         }
+        
     }
     
     // TODO: RETURNS PATH FOR SAVING FILE
@@ -151,6 +197,29 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         return (dateFormatter.string(from: Date()))
     }
     
+    func showAlert(){
+        let dialogMessage = UIAlertController(title: "Welcome", message: "Would you like to start flash survey, please press continue to proceed", preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "Continue", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+        })
+        
+        // Create Cancel button with action handlder
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        //Add OK and Cancel button to an Alert object
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        
+        DispatchQueue.main.async {
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
+        // Present alert message to user
+       // self.present(dialogMessage, animated: true, completion: nil)
+    }
     
 }
 
