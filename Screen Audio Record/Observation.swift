@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Observation{
+struct Observation: Codable{
     var startDate : String?
     var endDate : String?
     var audioPath : String?

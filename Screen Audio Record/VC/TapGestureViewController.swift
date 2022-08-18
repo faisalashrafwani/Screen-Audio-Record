@@ -20,11 +20,13 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
     var isFirstTime = true
     var observations : [Observation] = []
     var observation = Observation()
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // showAlert()
         setupRecorderSession()
+        
       
         
     }
@@ -72,7 +74,7 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
             return
         }
         if audioRecorder == nil {
-           observation = Observation()
+            observation = Observation()
             
             startRecording()
         } else {
@@ -80,17 +82,22 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    //index func for name
+    func indexIncrementer() -> Int {
+        self.index += 1
+        return index
+    }
+    
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
         self.imageView.image = #imageLiteral(resourceName: "recording")
         let captureDateTime = captureDateTime()
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
-        do{
-            try observation.audioPath = String(contentsOf: audioFilename)
-         
-        }catch {
-            
-        }
+        let index = indexIncrementer()
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording\(index).m4a")
+        
+        //removed try catch. CONFIRM LATER
+        observation.audioPath = audioFilename.absoluteString
+        
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
@@ -146,6 +153,10 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
         print("End Time: \(captureDateTime)\n")
         observation.endDate = captureDateTime
         observations.append(observation)
+        
+        let data = try! JSONEncoder().encode(observations)
+        UserDefaults.standard.set(data, forKey: "recordingList")
+        
         audioRecorder = nil
         
         if success {

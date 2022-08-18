@@ -12,6 +12,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tapGesture: UIButton!
     
+//    var observation = Observation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +35,11 @@ class MainViewController: UIViewController {
     
     
     @IBAction func recordTapped(_ sender: UIButton) {
-        var recordVC = RecordViewController()
-        navigationController?.pushViewController(recordVC, animated: true)
+//        var recordVC = RecordViewController()
+//        navigationController?.pushViewController(recordVC, animated: true)
+        
+        var playRecordingsVC = PlayRecordingsViewController()
+        navigationController?.pushViewController(playRecordingsVC, animated: true)
         
     }
     

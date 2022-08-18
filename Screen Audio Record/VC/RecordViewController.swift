@@ -106,7 +106,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
         do{
-            try observation.audioPath = String(contentsOf: audioFilename)
+            try observation.audioPath = audioFilename.absoluteString
          
         }catch {
             
