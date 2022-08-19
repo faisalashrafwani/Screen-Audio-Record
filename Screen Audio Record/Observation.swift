@@ -10,4 +10,6 @@ struct Observation: Codable{
     var startDate : String?
     var endDate : String?
     var audioPath : String?
+    var duration : Double?
+    var pathUrl : URL?
 }

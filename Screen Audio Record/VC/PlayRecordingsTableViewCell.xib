@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,41 +18,57 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVw-lr-N5E">
+                        <rect key="frame" x="10" y="18.5" width="30.5" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" title="1">
+                            <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </buttonConfiguration>
+                    </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KHj-ZU-rrI">
-                        <rect key="frame" x="2" y="8.5" width="81.5" height="51"/>
+                        <rect key="frame" x="70.5" y="9.5" width="79.5" height="49"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ya0-mN-a2J">
-                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ya0-mN-a2J">
+                                <rect key="frame" x="0.0" y="0.0" width="79.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gup-ZR-AaF">
-                                <rect key="frame" x="0.0" y="29.5" width="81.5" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="0.0" y="29.5" width="79.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fo-as-iV2">
-                        <rect key="frame" x="265" y="18.5" width="51" height="31"/>
+                        <rect key="frame" x="204.5" y="13.5" width="105.5" height="41"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="filled" title="Play"/>
+                        <buttonConfiguration key="configuration" style="filled" title="Play">
+                            <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </buttonConfiguration>
                         <connections>
                             <action selector="playBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mZA-xr-PU9"/>
                         </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray5Color"/>
                 <constraints>
+                    <constraint firstItem="fVw-lr-N5E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="CVf-F6-O36"/>
                     <constraint firstItem="KHj-ZU-rrI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DWs-Oy-QS2"/>
+                    <constraint firstItem="fVw-lr-N5E" firstAttribute="height" secondItem="KHj-ZU-rrI" secondAttribute="height" multiplier="0.632653" id="Ins-tk-7s5"/>
                     <constraint firstItem="2fo-as-iV2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QpX-NN-yyG"/>
-                    <constraint firstItem="KHj-ZU-rrI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="li0-qe-7hl"/>
-                    <constraint firstAttribute="trailing" secondItem="2fo-as-iV2" secondAttribute="trailing" constant="4" id="nFI-l7-RSz"/>
+                    <constraint firstItem="2fo-as-iV2" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="dqQ-1R-rdh"/>
+                    <constraint firstItem="2fo-as-iV2" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.33" id="dxa-8f-g4d"/>
+                    <constraint firstItem="KHj-ZU-rrI" firstAttribute="leading" secondItem="fVw-lr-N5E" secondAttribute="trailing" constant="30" id="ejn-E1-LQr"/>
+                    <constraint firstAttribute="trailing" secondItem="2fo-as-iV2" secondAttribute="trailing" constant="10" id="nFI-l7-RSz"/>
+                    <constraint firstItem="fVw-lr-N5E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yMg-gp-ByF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="SeqNoView" destination="fVw-lr-N5E" id="wnh-r8-OuL"/>
                 <outlet property="endDateTimelbl" destination="gup-ZR-AaF" id="GjC-ZG-eYS"/>
                 <outlet property="playBtn" destination="2fo-as-iV2" id="gCB-mI-Lqe"/>
                 <outlet property="startDateTimelbl" destination="Ya0-mN-a2J" id="Htp-u2-4KI"/>
@@ -59,4 +76,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="117.1875"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

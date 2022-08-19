@@ -10,6 +10,10 @@ import AVFoundation
 import Foundation
 
 class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
+    var counter = 0
+    var timer = Timer()
+
+    @IBOutlet weak var counterLabel: UILabel!
     
     @IBOutlet weak var recordView: UIView!
     
@@ -18,20 +22,25 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
-    var observations : [Observation] = []
+   // var observations : [Observation] = []
     var observation = Observation()
     var permission = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // showAlert()
+        UIApplication.shared.isIdleTimerDisabled = true
         becomeFirstResponder()
         setupRecorderSession()
+        
+        MainViewController.observations.removeAll()
       
         
     }
     override func viewWillAppear(_ animated: Bool) {
         self.imageView.image = #imageLiteral(resourceName: "instuction_shake")
+        MainViewController.observations.removeAll()
+      
     }
     override var canBecomeFirstResponder: Bool {
            return true
@@ -55,7 +64,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setCategory(.playAndRecord, mode: .default, options : [.defaultToSpeaker])
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
@@ -98,6 +107,8 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
+        counterLabel.isHidden = false
+        startCounter()
        self.imageView.image = #imageLiteral(resourceName: "recording_shake")
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
@@ -153,16 +164,25 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
+        if (timer != nil){
+            timer.invalidate()
+        }
+        counterLabel.isHidden = true
+        counterLabel.text = "00 : 00 : 00"
+        if audioRecorder == nil || !audioRecorder.isRecording {
+            return
+        }
        self.imageView.image = #imageLiteral(resourceName: "stop_shake")
        // self.imageView.image = #imageLiteral(resourceName: "stop")
         let captureDateTime = captureDateTime()
+        observation.duration = audioRecorder.currentTime
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         playRecordingStopped()
        // self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
         observation.endDate = captureDateTime
-        observations.append(observation)
+        MainViewController.observations.append(observation)
         audioRecorder = nil
         
         if success {
@@ -192,9 +212,9 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     // TODO: CAPTURES DATE AND TIME
     func captureDateTime() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH: mm: ssZ"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH: mm: ssZ"
+       // dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        //dateFormatter.locale = Locale(identifier: "en_US")
         return (dateFormatter.string(from: Date()))
     }
     
@@ -221,6 +241,36 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
         // Present alert message to user
        // self.present(dialogMessage, animated: true, completion: nil)
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        finishRecording(success: true)
+    }
+    func startCounter(){
+        counter = 0
+
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    // called every time interval from the timer
+    @objc func timerAction() {
+            counter += 1
+        var time = secondToHourMinSec(seconds: counter)
+        counterLabel.text = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+           // label.text = "\(counter)"
+        }
     
+    func secondToHourMinSec(seconds : Int) -> (Int, Int, Int){
+        return ((seconds/3600),((seconds%3600)/60),((seconds%3600)%60))
+        
+    }
+    func makeTimeString(hours : Int, minutes : Int, seconds :Int )-> String {
+        
+        var timeString = ""
+        timeString += String(format : "%02d", hours)
+        timeString += " : "
+        timeString += String(format : "%02d", minutes)
+        timeString += " : "
+        timeString += String(format : "%02d", seconds)
+    
+         return timeString
+    }
 }
 

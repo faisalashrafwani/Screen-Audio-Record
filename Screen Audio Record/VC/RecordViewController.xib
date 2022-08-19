@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController" customModule="Screen_Audio_Record" customModuleProvider="target">
             <connections>
                 <outlet property="actionButton" destination="Mvs-AD-PMf" id="JnG-sy-ztl"/>
+                <outlet property="counterLabel" destination="pkj-Bi-8X0" id="roD-ya-AQr"/>
                 <outlet property="imageView" destination="7K9-Yd-eaU" id="E6b-8X-wKF"/>
                 <outlet property="recordView" destination="uuk-bF-1x9" id="iIC-Sz-1YU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,14 +26,22 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Yd-eaU">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-Bi-8X0">
+                    <rect key="frame" x="118.5" y="114.5" width="177" height="40"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuk-bF-1x9">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvs-AD-PMf">
                             <rect key="frame" x="83" y="673.5" width="248" height="44"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title=" Start">
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <buttonConfiguration key="configuration" style="plain" title=" Start">
                                 <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
                             <connections>
                                 <action selector="ActionButtonClicked:" destination="-1" eventType="touchUpInside" id="cTd-2d-4zk"/>
@@ -51,12 +60,14 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uuk-bF-1x9" secondAttribute="trailing" id="9ug-Gr-GeA"/>
+                <constraint firstItem="pkj-Bi-8X0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CTb-8r-egc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7K9-Yd-eaU" secondAttribute="trailing" id="Frv-WD-W72"/>
                 <constraint firstItem="uuk-bF-1x9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="W6V-IJ-sV0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7K9-Yd-eaU" secondAttribute="bottom" id="Wal-BT-hbz"/>
                 <constraint firstItem="7K9-Yd-eaU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c2i-dh-lgn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uuk-bF-1x9" secondAttribute="bottom" id="eVk-is-XV4"/>
                 <constraint firstItem="uuk-bF-1x9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hSX-Ie-Xif"/>
+                <constraint firstItem="pkj-Bi-8X0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.3" id="tf0-nW-CVP"/>
                 <constraint firstItem="7K9-Yd-eaU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vwT-LA-vhZ"/>
             </constraints>
             <point key="canvasLocation" x="139" y="72"/>

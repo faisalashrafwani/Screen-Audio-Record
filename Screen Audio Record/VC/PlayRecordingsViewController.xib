@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,20 +20,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recorded Audio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpC-U2-VOW" userLabel="Recorded Audio">
+                    <rect key="frame" x="0.0" y="74" width="414" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-A5-d9m">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="127" width="414" height="735"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="tcE-A5-d9m" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8qF-d2-1qV"/>
+                <constraint firstItem="tcE-A5-d9m" firstAttribute="top" secondItem="HpC-U2-VOW" secondAttribute="bottom" constant="10" id="8qF-d2-1qV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tcE-A5-d9m" secondAttribute="trailing" id="C3j-Ny-tu9"/>
                 <constraint firstItem="tcE-A5-d9m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Dfq-Ob-8qX"/>
+                <constraint firstItem="HpC-U2-VOW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="JLp-G4-Wan"/>
+                <constraint firstItem="HpC-U2-VOW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jzU-k5-abp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tcE-A5-d9m" secondAttribute="bottom" id="pAn-mr-Z74"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HpC-U2-VOW" secondAttribute="trailing" id="tId-iD-1Ye"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="93"/>
+            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </view>
     </objects>
     <resources>

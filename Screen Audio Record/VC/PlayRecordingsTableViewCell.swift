@@ -9,6 +9,7 @@ import UIKit
 
 class PlayRecordingsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var SeqNoView: UIButton!
     @IBOutlet weak var startDateTimelbl: UILabel!
     @IBOutlet weak var endDateTimelbl: UILabel!
     @IBOutlet weak var playBtn: UIButton!

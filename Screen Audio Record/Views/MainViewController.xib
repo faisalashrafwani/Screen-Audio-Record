@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Screen_Audio_Record" customModuleProvider="target">
             <connections>
+                <outlet property="recordedAudios" destination="RQq-6s-P9I" id="fhR-kI-blY"/>
                 <outlet property="tapGesture" destination="kmt-DO-lGs" id="xAt-dE-sFm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5oI-lT-PMb" userLabel="title Stack View">
-                    <rect key="frame" x="256" y="231" width="512" height="84"/>
+                    <rect key="frame" x="256" y="265.5" width="512" height="84"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose gestures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-y2-ayy" userLabel="title">
                             <rect key="frame" x="104.5" y="0.0" width="303.5" height="50.5"/>
@@ -38,41 +39,61 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3ai-p7-Hhq">
-                    <rect key="frame" x="128" y="514.5" width="768" height="341.5"/>
+                    <rect key="frame" x="128" y="514.5" width="768" height="478"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-DO-lGs">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="100.5"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-DO-lGs">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="104.5"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <buttonConfiguration key="configuration" style="filled" image="long-tap-gesture" title="          Two Finger Tap">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                                <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
                             <connections>
                                 <action selector="GestureTapped:" destination="-1" eventType="touchUpInside" id="Ubj-WX-DPs"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syZ-Az-fVb">
-                            <rect key="frame" x="0.0" y="120.5" width="768" height="100.5"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="0.0" y="124.5" width="768" height="104.5"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" image="shake-gesture" title="          Motion or Shake Gesture">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                                <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
                             <connections>
                                 <action selector="motionGestureTapped:" destination="-1" eventType="touchUpInside" id="agB-lO-jck"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-or-SEq">
-                            <rect key="frame" x="0.0" y="241" width="768" height="100.5"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-or-SEq">
+                            <rect key="frame" x="0.0" y="249" width="768" height="104.5"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" image="record" title="          Record automatically for 30 Minutes">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                                <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
                             <connections>
                                 <action selector="recordTapped:" destination="-1" eventType="touchUpInside" id="23O-xc-ZOO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-6s-P9I" userLabel="Record audios">
+                            <rect key="frame" x="0.0" y="373.5" width="768" height="104.5"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" image="record" title="          Play recorded audios">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
+                                <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="recordedAudiosTapped:" destination="-1" eventType="touchUpInside" id="zEa-7N-OW7"/>
                             </connections>
                         </button>
                     </subviews>
@@ -82,13 +103,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="CkJ-N6-mUb"/>
+                <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="1.1" id="CkJ-N6-mUb"/>
                 <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Dai-HA-iEI"/>
                 <constraint firstItem="5oI-lT-PMb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U6i-fZ-fg9"/>
                 <constraint firstItem="5oI-lT-PMb" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.5" id="Uml-Ad-e00"/>
                 <constraint firstItem="3ai-p7-Hhq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.75" id="Xvw-oc-RC8"/>
-                <constraint firstItem="5oI-lT-PMb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.4" id="i76-pO-e13"/>
-                <constraint firstItem="3ai-p7-Hhq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="q5h-Bv-6Yt"/>
+                <constraint firstItem="5oI-lT-PMb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.45" id="i76-pO-e13"/>
+                <constraint firstItem="3ai-p7-Hhq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.35" id="q5h-Bv-6Yt"/>
             </constraints>
             <point key="canvasLocation" x="139" y="72"/>
         </view>

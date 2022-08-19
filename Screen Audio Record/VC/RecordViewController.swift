@@ -14,28 +14,35 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var recordView: UIView!
-    
+    var counter = 0
+    var timer = Timer()
+
+    @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
-    var observations : [Observation] = []
+   // var observations : [Observation] = []
     var observation = Observation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // showAlert()
+        UIApplication.shared.isIdleTimerDisabled = true
         actionButton.isEnabled = false
         actionButton.setTitle("Start Recording", for: .normal)
         setupRecorderSession()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 120) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1800) {
           
             self.finishRecording(success: true)
         }
         
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        MainViewController.observations.removeAll()
     }
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
         
@@ -43,6 +50,8 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
            observation = Observation()
           
             actionButton.setTitle("Stop Recording", for: .normal)
+           // actionButton.backgroundColor = UIColor.red
+          //  actionButton.tintColor = UIColor.red
             
             startRecording()
         } else {
@@ -62,7 +71,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setCategory(.playAndRecord, mode: .default, options : [.defaultToSpeaker])
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
@@ -107,6 +116,9 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
+        counterLabel.isHidden = false
+        startCounter()
+    
         self.imageView.image = #imageLiteral(resourceName: "recording_started")
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording \(captureDateTime).m4a")
@@ -128,6 +140,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
+            
             
             // TODO: OFFSET TIME
             let timeOffset = audioRecorder.deviceCurrentTime + 1.0
@@ -162,16 +175,25 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
+        if (timer != nil){
+            timer.invalidate()
+        }
+        counterLabel.isHidden = true
+        counterLabel.text = "00 : 00 : 00"
+        if audioRecorder == nil || !audioRecorder.isRecording {
+            return
+        }
         actionButton.isEnabled = false
        self.imageView.image = #imageLiteral(resourceName: "recording_stopped")
         let captureDateTime = captureDateTime()
+        observation.duration = audioRecorder.currentTime
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         playRecordingStopped()
        // self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
         observation.endDate = captureDateTime
-        observations.append(observation)
+        MainViewController.observations.append(observation)
         audioRecorder = nil
         
         if success {
@@ -201,9 +223,9 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     // TODO: CAPTURES DATE AND TIME
     func captureDateTime() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH: mm: ssZ"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH: mm: ssZ"
+        //dateFormatter.timeZone = TimeZone(identifier: "UTC")
+       // dateFormatter.locale = Locale(identifier: "en_US")
         return (dateFormatter.string(from: Date()))
     }
     
@@ -231,5 +253,52 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
        // self.present(dialogMessage, animated: true, completion: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        finishRecording(success: true)
+    }
+    func sizePerMB(url: URL?) -> Double {
+        guard let filePath = url?.path else {
+            return 0.0
+        }
+        do {
+            let attribute = try FileManager.default.attributesOfItem(atPath: filePath)
+            if let size = attribute[FileAttributeKey.size] as? NSNumber {
+                return size.doubleValue / 1000000.0
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        return 0.0
+    }
+    
+    
+    func startCounter(){
+        counter = 0
+
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    // called every time interval from the timer
+    @objc func timerAction() {
+            counter += 1
+        var time = secondToHourMinSec(seconds: counter)
+        counterLabel.text = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+           // label.text = "\(counter)"
+        }
+    
+    func secondToHourMinSec(seconds : Int) -> (Int, Int, Int){
+        return ((seconds/3600),((seconds%3600)/60),((seconds%3600)%60))
+        
+    }
+    func makeTimeString(hours : Int, minutes : Int, seconds :Int )-> String {
+        
+        var timeString = ""
+        timeString += String(format : "%02d", hours)
+        timeString += " : "
+        timeString += String(format : "%02d", minutes)
+        timeString += " : "
+        timeString += String(format : "%02d", seconds)
+    
+         return timeString
+    }
 }
 
