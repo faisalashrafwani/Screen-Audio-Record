@@ -22,7 +22,7 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
    // var observations : [Observation] = []
-    var observation = Observation()
+    var observation = FlashObservation()
     var index: Int = 0
     
     override func viewDidLoad() {
@@ -79,7 +79,7 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
             return
         }
         if audioRecorder == nil {
-            observation = Observation()
+            observation = FlashObservation()
             
             startRecording()
         } else {

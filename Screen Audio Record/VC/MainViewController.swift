@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var recordedAudios: UIButton!
     @IBOutlet weak var tapGesture: UIButton!
     
-    static var observations :[Observation] = []
+    static var observations :[FlashObservation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

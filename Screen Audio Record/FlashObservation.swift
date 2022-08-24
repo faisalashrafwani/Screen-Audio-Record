@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Observation: Codable{
+struct FlashObservation: Codable{
     var startDate : String?
     var endDate : String?
     var audioPath : String?

@@ -11,7 +11,7 @@ import AVFoundation
 class PlayRecordingsViewController: UIViewController {
     @IBOutlet weak var playRecordingsTableView: UITableView!
     
-    var recordingList = [Observation]()
+    var recordingList = [FlashObservation]()
     var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {

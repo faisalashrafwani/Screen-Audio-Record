@@ -23,7 +23,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
    // var observations : [Observation] = []
-    var observation = Observation()
+    var observation = FlashObservation()
     var permission = false
     
     override func viewDidLoad() {
@@ -97,7 +97,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
             return
         }
         if audioRecorder == nil {
-           observation = Observation()
+           observation = FlashObservation()
             
             startRecording()
         } else {

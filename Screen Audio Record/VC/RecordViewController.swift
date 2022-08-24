@@ -24,7 +24,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
    // var observations : [Observation] = []
-    var observation = Observation()
+    var observation = FlashObservation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
         
         if audioRecorder == nil {
-           observation = Observation()
+           observation = FlashObservation()
           
             actionButton.setTitle("Stop Recording", for: .normal)
            // actionButton.backgroundColor = UIColor.red
@@ -79,14 +79,14 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
                         
                         
                         actionButton.isEnabled = true
-//                        // TODO: CREATING GESTURE RECOGNIZER
-//                        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
-//                        gestureRecognizer.numberOfTapsRequired = 1
-//                        gestureRecognizer.numberOfTouchesRequired = 2
-//
-//                        // TODO: SETTING GESTURE RECOGNIZER TO FILE
-//                        self.recordView.addGestureRecognizer(gestureRecognizer)
-//                        self.recordView.isUserInteractionEnabled = true
+                        // TODO: CREATING GESTURE RECOGNIZER
+                        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
+                        gestureRecognizer.numberOfTapsRequired = 1
+                        gestureRecognizer.numberOfTouchesRequired = 2
+
+                        // TODO: SETTING GESTURE RECOGNIZER TO FILE
+                        self.recordView.addGestureRecognizer(gestureRecognizer)
+                        self.recordView.isUserInteractionEnabled = true
                         
                     } else {
                         print("No Permission Granted")
@@ -105,13 +105,25 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
 //            self.imageView.image = #imageLiteral(resourceName: "start")
 //            return
 //        }
-        if audioRecorder == nil {
-           observation = Observation()
-            
-            startRecording()
-        } else {
-            finishRecording(success: true)
+//        if audioRecorder == nil {
+//           observation = FlashObservation()
+//
+//            startRecording()
+//        } else {
+//            finishRecording(success: true)
+//        }
+        
+        
+        //AudioServicesPlayAlertSound(SystemSoundID(1322))
+        
+      //  AudioServicesPlaySystemSound(SystemSoundID(1322))
+        
+        if  audioRecorder != nil && audioRecorder.isRecording {
+            let url = Bundle.main.url(forResource: "beeeep", withExtension: "mp3")
+            audioPlayer = try! AVAudioPlayer(contentsOf: url!)
+            audioPlayer.play()
         }
+      
     }
     
     // TODO: STARTS RECORDING VOICE
