@@ -8,12 +8,16 @@
 import UIKit
 import AVFoundation
 import Foundation
+import Lottie
 
 class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var recordView: UIView!
+    @IBOutlet weak var animationView: AnimationView!
+    
     var counter = 0
     var timer = Timer()
+    var lottieTimer: Timer?
 
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -21,7 +25,6 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
-   // var observations : [Observation] = []
     var observation = Observation()
     var index: Int = 0
     
@@ -30,6 +33,7 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
         UIApplication.shared.isIdleTimerDisabled = true
        // showAlert()
         setupRecorderSession()
+        setupAnimation()
         MainViewController.observations.removeAll()
         
       
@@ -37,6 +41,33 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.imageView.image = #imageLiteral(resourceName: "instruction2")
+    }
+    
+    //TODO: SETUP ANIMATION
+    private func setupAnimation() {
+        animationView.contentMode = .scaleAspectFit
+        Animation.loadedFrom(url: URL(string: "https://assets1.lottiefiles.com/datafiles/QeC7XD39x4C1CIj/data.json")!, closure: { [animationView] animation in
+            self.animationView?.animation = animation
+        }, animationCache: LRUAnimationCache.sharedCache)
+    }
+    
+    private func startMonitoring() {
+        audioRecorder?.isMeteringEnabled = true
+        lottieTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { [audioRecorder, weak self] (lottieTimer) in
+            audioRecorder?.updateMeters()
+            self?.updateAudioMeter(audioRecorder?.averagePower(forChannel: 0) ?? 0)
+        })
+    }
+    
+    private func updateAudioMeter(_ power: Float) {
+        let level = max(0.2, CGFloat(power) + 50) / 2
+        let progress = level/25
+        
+        animationView.currentFrame = 33*progress
+    }
+    
+    deinit {
+        lottieTimer?.invalidate()
     }
     
     
@@ -125,7 +156,7 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
             
             // TODO: RECORDS VOICE
             audioRecorder.record(atTime: timeOffset) //DELAYS RECORDING BY 1 SECOND SO THAT VERBAL INSTRUCTIONS AREN'T RECORDED.
-            
+            startMonitoring()
             //self.recordView.backgroundColor = UIColor.green
             
             print("Recording in progress...\n")
@@ -163,6 +194,10 @@ class TapGestureViewController: UIViewController, AVAudioRecorderDelegate {
         self.imageView.image = #imageLiteral(resourceName: "stop")
         let captureDateTime = captureDateTime()
         observation.duration = audioRecorder.currentTime
+        
+        print("size and duration")
+        print(sizePerMB(url: observation.pathUrl))
+        print(observation.duration)
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         playRecordingStopped()

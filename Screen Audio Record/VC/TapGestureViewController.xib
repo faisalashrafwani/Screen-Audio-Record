@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TapGestureViewController" customModule="Screen_Audio_Record" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="66U-qK-3Zp" id="jA2-Wg-ZRa"/>
                 <outlet property="counterLabel" destination="WQM-Tn-Zho" id="ztD-nh-paF"/>
                 <outlet property="imageView" destination="hbD-Rv-bRQ" id="wjN-GB-GJW"/>
                 <outlet property="recordView" destination="cFt-0h-w59" id="5WU-pW-h1Z"/>
@@ -33,7 +34,21 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFt-0h-w59">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66U-qK-3Zp" customClass="AnimationView" customModule="Lottie">
+                            <rect key="frame" x="0.0" y="202" width="414" height="414"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="66U-qK-3Zp" secondAttribute="height" multiplier="1:1" id="Yea-0P-mS3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="66U-qK-3Zp" firstAttribute="width" secondItem="cFt-0h-w59" secondAttribute="width" id="ALD-Ne-iTD"/>
+                        <constraint firstItem="66U-qK-3Zp" firstAttribute="centerY" secondItem="cFt-0h-w59" secondAttribute="centerY" id="TxC-sJ-1Fh"/>
+                        <constraint firstItem="66U-qK-3Zp" firstAttribute="centerX" secondItem="cFt-0h-w59" secondAttribute="centerX" id="grp-i3-MB4"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
