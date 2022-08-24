@@ -9,9 +9,12 @@
 import UIKit
 import AVFoundation
 import Foundation
+import Lottie
 
 class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
+    @IBOutlet weak var gotItButton: UIButton!
     
+    @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var recordView: UIView!
     var counter = 0
@@ -29,36 +32,28 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        // showAlert()
+     
+        animationView.isHidden = true
+        counterLabel.isHidden = true
         UIApplication.shared.isIdleTimerDisabled = true
         actionButton.isEnabled = false
         actionButton.setTitle("Start Recording", for: .normal)
         setupRecorderSession()
+       self.imageView.image = #imageLiteral(resourceName: "record_instruction")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1800) {
           
             self.finishRecording(success: true)
         }
         
+        actionButton.isHidden = true
         
     }
     override func viewDidAppear(_ animated: Bool) {
         MainViewController.observations.removeAll()
     }
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
-        
-        if audioRecorder == nil {
-           observation = FlashObservation()
-          
-            actionButton.setTitle("Stop Recording", for: .normal)
-           // actionButton.backgroundColor = UIColor.red
-          //  actionButton.tintColor = UIColor.red
-            
-            startRecording()
-        } else {
-            actionButton.setTitle("Start Recording", for: .normal)
-          
-            finishRecording(success: true)
-        }
+        showAlert()
     }
     override func viewWillAppear(_ animated: Bool) {
         //self.imageView.image = #imageLiteral(resourceName: "instruction2")
@@ -242,11 +237,19 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     }
     
     func showAlert(){
-        let dialogMessage = UIAlertController(title: "Welcome", message: "Would you like to start flash survey, please press continue to proceed", preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "Alert", message: "Once you stop recording, you cannot restart it, are you sure to stop?", preferredStyle: .alert)
         
         // Create OK button with action handler
-        let ok = UIAlertAction(title: "Continue", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
+        let ok = UIAlertAction(title: "Stop", style: .default, handler: { (action) -> Void in
+           
+            
+            if self.audioRecorder == nil {
+               
+            } else {
+              //  self.actionButton.setTitle("Start Recording", for: .normal)
+        
+                self.finishRecording(success: true)
+            }
         })
         
         // Create Cancel button with action handlder
@@ -268,6 +271,38 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         finishRecording(success: true)
     }
+    
+    
+    @IBAction func gotItTapped(_ sender: UIButton) {
+        animationView.isHidden = false
+        self.imageView.isHidden = true
+        gotItButton.isHidden = true
+        animationView.play(completion: {_ in
+            self.animationView.isHidden = true
+            self.imageView.isHidden = true
+          
+            if self.audioRecorder == nil {
+                self.observation = FlashObservation()
+              
+                self.actionButton.setTitle("Stop Recording", for: .normal)
+               // actionButton.backgroundColor = UIColor.red
+              //  actionButton.tintColor = UIColor.red
+                
+                self.actionButton.isEnabled = true
+                self.actionButton.isHidden = false
+                self.gotItButton.isHidden = true
+                self.counterLabel.isHidden = false
+              
+                self.startRecording()
+            }
+        })
+        
+        
+        
+    }
+    
+    
+    
     func sizePerMB(url: URL?) -> Double {
         guard let filePath = url?.path else {
             return 0.0
@@ -312,5 +347,8 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
          return timeString
     }
+    
+    
+    
 }
 

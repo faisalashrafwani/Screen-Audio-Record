@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0221F328B61B7A00B6E2A4 /* start_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0221F228B61B7A00B6E2A4 /* start_animation.json */; };
 		0D72C1EA28ACD4DA00F5AB77 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */; };
 		0D72C1EB28ACD4DA00F5AB77 /* ShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */; };
 		0D72C1EE28ACD9F200F5AB77 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */; };
@@ -20,6 +21,7 @@
 		0DD8AD5D28ACC58E00823911 /* TapGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8AD5B28ACC58D00823911 /* TapGestureViewController.xib */; };
 		0DF8EC4128B4FADD00EC75BB /* beeep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8EC4028B4FADC00EC75BB /* beeep.mp3 */; };
 		0DF8EC4328B4FC3500EC75BB /* beeeep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8EC4228B4FC3500EC75BB /* beeeep.mp3 */; };
+		42B1C15F178B6B93B2A2CD70 /* Pods_Screen_Audio_Record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C223F0A6039DE948FEA4DE2A /* Pods_Screen_Audio_Record.framework */; };
 		845E6ADC28A75E8400E3DC07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6ADB28A75E8400E3DC07 /* AppDelegate.swift */; };
 		845E6ADE28A75E8400E3DC07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6ADD28A75E8400E3DC07 /* SceneDelegate.swift */; };
 		845E6AE328A75E8400E3DC07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E6AE128A75E8400E3DC07 /* Main.storyboard */; };
@@ -34,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0221F228B61B7A00B6E2A4 /* start_animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = start_animation.json; sourceTree = "<group>"; };
 		0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
 		0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShakeViewController.xib; sourceTree = "<group>"; };
 		0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		0DD8AD5B28ACC58D00823911 /* TapGestureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapGestureViewController.xib; sourceTree = "<group>"; };
 		0DF8EC4028B4FADC00EC75BB /* beeep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beeep.mp3; sourceTree = "<group>"; };
 		0DF8EC4228B4FC3500EC75BB /* beeeep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beeeep.mp3; sourceTree = "<group>"; };
+		257E35D7E0DB494149BAB937 /* Pods-Screen Audio Record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen Audio Record.release.xcconfig"; path = "Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record.release.xcconfig"; sourceTree = "<group>"; };
 		845E6AD828A75E8400E3DC07 /* Screen Audio Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Screen Audio Record.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E6ADB28A75E8400E3DC07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E6ADD28A75E8400E3DC07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		8491934E28AE298B006B4012 /* PlayRecordingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayRecordingsViewController.xib; sourceTree = "<group>"; };
 		8491935128AE2AC6006B4012 /* PlayRecordingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRecordingsTableViewCell.swift; sourceTree = "<group>"; };
 		8491935228AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayRecordingsTableViewCell.xib; sourceTree = "<group>"; };
+		B182E4AFE1C4107A04DD7BCA /* Pods-Screen Audio Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen Audio Record.debug.xcconfig"; path = "Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record.debug.xcconfig"; sourceTree = "<group>"; };
+		C223F0A6039DE948FEA4DE2A /* Pods_Screen_Audio_Record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Screen_Audio_Record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B1C15F178B6B93B2A2CD70 /* Pods_Screen_Audio_Record.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +96,7 @@
 				0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */,
 				0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */,
 				0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */,
+				0D0221F228B61B7A00B6E2A4 /* start_animation.json */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -113,6 +121,8 @@
 			children = (
 				845E6ADA28A75E8400E3DC07 /* Screen Audio Record */,
 				845E6AD928A75E8400E3DC07 /* Products */,
+				FDA0C68D6BF10C1CC8267F2E /* Pods */,
+				DB0B6C4D60254FADEE45394F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +163,23 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
+		DB0B6C4D60254FADEE45394F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C223F0A6039DE948FEA4DE2A /* Pods_Screen_Audio_Record.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDA0C68D6BF10C1CC8267F2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B182E4AFE1C4107A04DD7BCA /* Pods-Screen Audio Record.debug.xcconfig */,
+				257E35D7E0DB494149BAB937 /* Pods-Screen Audio Record.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 845E6AEC28A75E8800E3DC07 /* Build configuration list for PBXNativeTarget "Screen Audio Record" */;
 			buildPhases = (
+				5D63186592A584CA7F6261B3 /* [CP] Check Pods Manifest.lock */,
 				845E6AD428A75E8400E3DC07 /* Sources */,
 				845E6AD528A75E8400E3DC07 /* Frameworks */,
 				845E6AD628A75E8400E3DC07 /* Resources */,
+				B38346B14930983B42A04C4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +245,7 @@
 				0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */,
 				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
 				0DD8AD5028ACBA0A00823911 /* MainViewController.xib in Resources */,
+				0D0221F328B61B7A00B6E2A4 /* start_animation.json in Resources */,
 				8491935428AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib in Resources */,
 				0DF8EC4328B4FC3500EC75BB /* beeeep.mp3 in Resources */,
 				0DF8EC4128B4FADD00EC75BB /* beeep.mp3 in Resources */,
@@ -229,6 +259,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D63186592A584CA7F6261B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Screen Audio Record-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B38346B14930983B42A04C4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		845E6AD428A75E8400E3DC07 /* Sources */ = {
@@ -386,6 +458,7 @@
 		};
 		845E6AED28A75E8800E3DC07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B182E4AFE1C4107A04DD7BCA /* Pods-Screen Audio Record.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -417,6 +490,7 @@
 		};
 		845E6AEE28A75E8800E3DC07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 257E35D7E0DB494149BAB937 /* Pods-Screen Audio Record.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

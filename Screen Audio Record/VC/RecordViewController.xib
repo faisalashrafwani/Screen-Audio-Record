@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController" customModule="Screen_Audio_Record" customModuleProvider="target">
             <connections>
                 <outlet property="actionButton" destination="Mvs-AD-PMf" id="JnG-sy-ztl"/>
+                <outlet property="animationView" destination="w31-R4-f0z" id="44b-WS-esD"/>
                 <outlet property="counterLabel" destination="pkj-Bi-8X0" id="roD-ya-AQr"/>
+                <outlet property="gotItButton" destination="bj7-oW-yZv" id="gtX-VK-xge"/>
                 <outlet property="imageView" destination="7K9-Yd-eaU" id="E6b-8X-wKF"/>
                 <outlet property="recordView" destination="uuk-bF-1x9" id="iIC-Sz-1YU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Yd-eaU">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Yd-eaU">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-Bi-8X0">
@@ -36,10 +38,10 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvs-AD-PMf">
-                            <rect key="frame" x="83" y="673.5" width="248" height="44"/>
-                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <buttonConfiguration key="configuration" style="plain" title=" Start">
+                            <rect key="frame" x="124" y="673.5" width="166" height="44"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <buttonConfiguration key="configuration" style="plain" title=" Stop">
                                 <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
@@ -47,12 +49,40 @@
                                 <action selector="ActionButtonClicked:" destination="-1" eventType="touchUpInside" id="cTd-2d-4zk"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-oW-yZv" userLabel="Got it">
+                            <rect key="frame" x="124" y="673.5" width="166" height="44"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Got it">
+                                <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="gotItTapped:" destination="-1" eventType="touchUpInside" id="zq4-4L-Cf4"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w31-R4-f0z" userLabel="animationView" customClass="AnimationView" customModule="Lottie">
+                            <rect key="frame" x="20.5" y="222.5" width="373" height="373"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="w31-R4-f0z" secondAttribute="height" multiplier="1:1" id="fgq-HO-1hF"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="start_animation"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="Mvs-AD-PMf" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.6" id="3gn-Zq-fN7"/>
+                        <constraint firstItem="Mvs-AD-PMf" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.4" id="3gn-Zq-fN7"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="3tX-bd-xew"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.7" id="BeP-B7-2T5"/>
+                        <constraint firstItem="w31-R4-f0z" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="CuC-Ss-HKu"/>
+                        <constraint firstItem="bj7-oW-yZv" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.7" id="Jzj-7d-N8N"/>
+                        <constraint firstItem="w31-R4-f0z" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.9" id="UGf-nW-Is5"/>
+                        <constraint firstItem="w31-R4-f0z" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" id="UH6-qh-leK"/>
+                        <constraint firstItem="bj7-oW-yZv" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.4" id="eOJ-nK-ub1"/>
+                        <constraint firstItem="bj7-oW-yZv" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="nl7-58-BO9"/>
                     </constraints>
                 </view>
             </subviews>
@@ -76,6 +106,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
