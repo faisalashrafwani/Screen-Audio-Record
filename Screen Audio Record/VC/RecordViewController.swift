@@ -44,7 +44,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         actionButton.isEnabled = false
         actionButton.setTitle("Start Recording", for: .normal)
         setupRecorderSession()
-       self.imageView.image = #imageLiteral(resourceName: "record_instruction")
+       self.imageView.image = #imageLiteral(resourceName: "final_instruction3")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1800) {
           
@@ -53,11 +53,12 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         
         actionButton.isHidden = true
         
-        starterView.translatesAutoresizingMaskIntoConstraints = false
-        starterView.layer.cornerRadius = starterView.bounds.width/2
-             
-               starterView.layer.borderColor =  UIColor.black.cgColor
-               starterView.layer.borderWidth = 2
+//        starterView.translatesAutoresizingMaskIntoConstraints = false
+//        starterView.layer.cornerRadius = starterView.bounds.width/2
+//
+//               starterView.layer.borderColor =  UIColor.black.cgColor
+//               starterView.layer.borderWidth = 2
+        makeCircle(view: starterView)
        
         
     }
@@ -449,7 +450,28 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
          return timeString
     }
     
-    
+    func makeCircle (view: UIView) {
+            view.clipsToBounds = true
+            let height = view.frame.size.height
+            let width = view.frame.size.width
+            let newHeight = max(height, width) // use "max" if you want big circle
+
+            var rectFrame = view.frame
+            rectFrame.size.height = newHeight
+            rectFrame.size.width = newHeight
+            view.frame = rectFrame
+            view.layer.cornerRadius = newHeight/2
+        
+         view.layer.borderColor =  UIColor.black.cgColor
+        view.layer.borderWidth = 2
+        
+        //               starterView.layer.borderWidth = 2
+      //  starterView.translatesAutoresizingMaskIntoConstraints = false
+     //        starterView.layer.cornerRadius = starterView.bounds.width/2
+     //
+     //               starterView.layer.borderColor =  UIColor.black.cgColor
+     //               starterView.layer.borderWidth = 2
+        }
     
 }
 

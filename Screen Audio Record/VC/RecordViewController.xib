@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Yd-eaU">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Yd-eaU">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-Bi-8X0">
@@ -47,10 +47,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-2G-SI6" userLabel="starterView">
-                            <rect key="frame" x="83" y="285" width="248" height="248"/>
+                            <rect key="frame" x="7" y="209" width="400" height="400"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UpV-jp-FVH">
-                                    <rect key="frame" x="748.5" y="736" width="29" height="54"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UpV-jp-FVH">
+                                    <rect key="frame" x="185.5" y="173" width="29" height="54"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                     <nil key="textColor"/>
@@ -61,9 +61,8 @@
                             <constraints>
                                 <constraint firstItem="UpV-jp-FVH" firstAttribute="centerX" secondItem="DxS-2G-SI6" secondAttribute="centerX" id="EW8-lR-5cM"/>
                                 <constraint firstAttribute="width" secondItem="DxS-2G-SI6" secondAttribute="height" multiplier="1:1" id="Oxx-NI-0u3"/>
-                                <constraint firstItem="UpV-jp-FVH" firstAttribute="height" secondItem="DxS-2G-SI6" secondAttribute="height" multiplier="0.217742" id="nE1-aD-FMi"/>
+                                <constraint firstAttribute="width" constant="400" id="ed1-i8-RYj"/>
                                 <constraint firstItem="UpV-jp-FVH" firstAttribute="centerY" secondItem="DxS-2G-SI6" secondAttribute="centerY" id="x5b-6a-yGr"/>
-                                <constraint firstItem="UpV-jp-FVH" firstAttribute="width" secondItem="DxS-2G-SI6" secondAttribute="width" multiplier="0.116935" id="zLc-os-TN3"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="start_animation"/>
@@ -72,7 +71,6 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="DxS-2G-SI6" firstAttribute="width" secondItem="0Dg-km-Okm" secondAttribute="width" multiplier="0.6" id="EDR-bB-Gpx"/>
                         <constraint firstItem="bAZ-BY-ZVc" firstAttribute="centerX" secondItem="0Dg-km-Okm" secondAttribute="centerX" id="ELS-1w-oY8"/>
                         <constraint firstItem="DxS-2G-SI6" firstAttribute="centerY" secondItem="0Dg-km-Okm" secondAttribute="centerY" id="URS-8D-vOX"/>
                         <constraint firstItem="bAZ-BY-ZVc" firstAttribute="centerY" secondItem="0Dg-km-Okm" secondAttribute="centerY" multiplier="0.3" id="bHG-tc-5y0"/>
@@ -95,10 +93,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-oW-yZv" userLabel="Got it">
-                            <rect key="frame" x="124" y="673.5" width="166" height="44"/>
+                            <rect key="frame" x="124" y="714" width="166" height="44"/>
                             <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Got it">
+                            <buttonConfiguration key="configuration" style="plain" title="START">
                                 <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
@@ -123,7 +121,7 @@
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="3tX-bd-xew"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.7" id="BeP-B7-2T5"/>
                         <constraint firstItem="w31-R4-f0z" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="CuC-Ss-HKu"/>
-                        <constraint firstItem="bj7-oW-yZv" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.7" id="Jzj-7d-N8N"/>
+                        <constraint firstItem="bj7-oW-yZv" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.8" id="Jzj-7d-N8N"/>
                         <constraint firstItem="w31-R4-f0z" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.9" id="UGf-nW-Is5"/>
                         <constraint firstItem="w31-R4-f0z" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" id="UH6-qh-leK"/>
                         <constraint firstItem="bj7-oW-yZv" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.4" id="eOJ-nK-ub1"/>
