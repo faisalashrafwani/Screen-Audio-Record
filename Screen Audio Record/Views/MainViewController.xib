@@ -24,13 +24,13 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5oI-lT-PMb" userLabel="title Stack View">
                     <rect key="frame" x="256" y="265.5" width="512" height="84"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose gestures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-y2-ayy" userLabel="title">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose gestures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-y2-ayy" userLabel="title">
                             <rect key="frame" x="104.5" y="0.0" width="303.5" height="50.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="42"/>
                             <color key="textColor" red="0.12156862745098039" green="0.11372549019607843" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose gestures that you like for your recording." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJL-IE-ayK" userLabel="sub title">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose gestures that you like for your recording." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="aJL-IE-ayK" userLabel="sub title">
                             <rect key="frame" x="4.5" y="58.5" width="503" height="25.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <color key="textColor" red="0.35686274509803922" green="0.34509803921568627" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
