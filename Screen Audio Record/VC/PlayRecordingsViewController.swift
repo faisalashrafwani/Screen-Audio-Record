@@ -48,8 +48,14 @@ extension PlayRecordingsViewController: UITableViewDelegate, UITableViewDataSour
         
             cell.endDateTimelbl.text = "End Timestamp: \(recordingList[indexPath.row].endDate!)"
             cell.startDateTimelbl.text = "Start Timestamp: \(recordingList[indexPath.row].startDate!)"
-          
-        cell.SeqNoView.setTitle(String(indexPath.row + 1), for: .normal)
+        if recordingList[indexPath.row].metaData == nil {
+            cell.SeqNoView.setTitle(String(indexPath.row + 1), for: .normal)
+        }else {
+            cell.SeqNoView.setTitle(String(recordingList[indexPath.row].metaData.count), for: .normal)
+        }
+                
+      
+    
             
 //            cell.callbackPlay = {
 //                let url = URL(string: self.recordingList[indexPath.row].audioPath ?? "")

@@ -14,12 +14,17 @@ import Lottie
 class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var gotItButton: UIButton!
     
+    @IBOutlet weak var starterParentView: UIView!
+    @IBOutlet weak var starterView: UIView!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var recordView: UIView!
     var counter = 0
     var timer = Timer()
+    var lottieTimer: Timer?
+    var starterLabel = 5
 
+    @IBOutlet weak var starterLabelView: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var recordingSession: AVAudioSession!
@@ -48,9 +53,17 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         
         actionButton.isHidden = true
         
+        starterView.translatesAutoresizingMaskIntoConstraints = false
+        starterView.layer.cornerRadius = starterView.bounds.width/2
+             
+               starterView.layer.borderColor =  UIColor.black.cgColor
+               starterView.layer.borderWidth = 2
+       
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         MainViewController.observations.removeAll()
+   
     }
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
         showAlert()
@@ -59,6 +72,32 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         //self.imageView.image = #imageLiteral(resourceName: "instruction2")
     }
     
+    //TODO: SETUP ANIMATION
+    private func setupAnimation() {
+        animationView.contentMode = .scaleAspectFit
+        Animation.loadedFrom(url: URL(string: "https://assets1.lottiefiles.com/datafiles/QeC7XD39x4C1CIj/data.json")!, closure: { [animationView] animation in
+            self.animationView?.animation = animation
+        }, animationCache: LRUAnimationCache.sharedCache)
+    }
+    
+    private func startMonitoring() {
+        audioRecorder?.isMeteringEnabled = true
+        lottieTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { [audioRecorder, weak self] (lottieTimer) in
+            audioRecorder?.updateMeters()
+            self?.updateAudioMeter(audioRecorder?.averagePower(forChannel: 0) ?? 0)
+        })
+    }
+    
+    private func updateAudioMeter(_ power: Float) {
+        let level = max(0.2, CGFloat(power) + 50) / 2
+        let progress = level/25
+        
+        animationView.currentFrame = 33*progress
+    }
+    
+    deinit {
+        lottieTimer?.invalidate()
+    }
     
     
     // TODO: SETTING UP RECORDING SESSION
@@ -114,6 +153,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
       //  AudioServicesPlaySystemSound(SystemSoundID(1322))
         
         if  audioRecorder != nil && audioRecorder.isRecording {
+            observation.metaData.append(EventTime(timeStamp: captureDateTime(), secondOfAudio: audioRecorder.currentTime))
             let url = Bundle.main.url(forResource: "beeeep", withExtension: "mp3")
             audioPlayer = try! AVAudioPlayer(contentsOf: url!)
             audioPlayer.play()
@@ -123,6 +163,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: STARTS RECORDING VOICE
     func startRecording() {
+        animationView.isHidden = false
         counterLabel.isHidden = false
         startCounter()
     
@@ -155,7 +196,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             
             // TODO: RECORDS VOICE
             audioRecorder.record(atTime: timeOffset) //DELAYS RECORDING BY 1 SECOND SO THAT VERBAL INSTRUCTIONS AREN'T RECORDED.
-            
+            startMonitoring()
             //self.recordView.backgroundColor = UIColor.green
             
             print("Recording in progress...\n")
@@ -249,6 +290,9 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
               //  self.actionButton.setTitle("Start Recording", for: .normal)
         
                 self.finishRecording(success: true)
+                self.animationView.isHidden = true
+                self.showResultAlert()
+                
             }
         })
         
@@ -267,6 +311,30 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         // Present alert message to user
        // self.present(dialogMessage, animated: true, completion: nil)
     }
+    func showResultAlert(){
+        let dialogMessage = UIAlertController(title: "Flash Monitor", message: "Number of times Flash recorded : \(observation.metaData.count) ", preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+           
+            self.navigationController?.popViewController(animated: true)
+        })
+        
+        // Create Cancel button with action handlder
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        //Add OK and Cancel button to an Alert object
+        dialogMessage.addAction(ok)
+      //  dialogMessage.addAction(cancel)
+        
+        DispatchQueue.main.async {
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
+        // Present alert message to user
+       // self.present(dialogMessage, animated: true, completion: nil)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         finishRecording(success: true)
@@ -274,14 +342,18 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     
     @IBAction func gotItTapped(_ sender: UIButton) {
-        animationView.isHidden = false
+        starterParentView.isHidden = false
         self.imageView.isHidden = true
         gotItButton.isHidden = true
-        animationView.play(completion: {_ in
-            self.animationView.isHidden = true
+        
+        starterLabelView.text = String(starterLabel)
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.imageView.isHidden = true
-          
-            if self.audioRecorder == nil {
+            self.starterLabel = self.starterLabel - 1
+            self.starterLabelView.text = String(self.starterLabel)
+            
+            if self.starterLabel == 0 && self.audioRecorder == nil {
                 self.observation = FlashObservation()
               
                 self.actionButton.setTitle("Stop Recording", for: .normal)
@@ -292,10 +364,39 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
                 self.actionButton.isHidden = false
                 self.gotItButton.isHidden = true
                 self.counterLabel.isHidden = false
-              
+                self.setupAnimation()
                 self.startRecording()
+                self.starterParentView.isHidden = true
+                timer.invalidate()
             }
-        })
+
+//            if randomNumber == 10 {
+//                timer.invalidate()
+//            }
+        }
+        
+        
+        
+        
+//        animationView.play(completion: {_ in
+//           // self.animationView.isHidden = true
+//            self.imageView.isHidden = true
+//
+//            if self.audioRecorder == nil {
+//                self.observation = FlashObservation()
+//
+//                self.actionButton.setTitle("Stop Recording", for: .normal)
+//               // actionButton.backgroundColor = UIColor.red
+//              //  actionButton.tintColor = UIColor.red
+//
+//                self.actionButton.isEnabled = true
+//                self.actionButton.isHidden = false
+//                self.gotItButton.isHidden = true
+//                self.counterLabel.isHidden = false
+//                self.setupAnimation()
+//                self.startRecording()
+//            }
+      //  })
         
         
         

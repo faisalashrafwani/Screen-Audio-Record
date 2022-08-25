@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D0221F328B61B7A00B6E2A4 /* start_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0221F228B61B7A00B6E2A4 /* start_animation.json */; };
+		0D0221F528B6367800B6E2A4 /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0221F428B6367800B6E2A4 /* wave.json */; };
 		0D72C1EA28ACD4DA00F5AB77 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */; };
 		0D72C1EB28ACD4DA00F5AB77 /* ShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */; };
 		0D72C1EE28ACD9F200F5AB77 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0D0221F228B61B7A00B6E2A4 /* start_animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = start_animation.json; sourceTree = "<group>"; };
+		0D0221F428B6367800B6E2A4 /* wave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
 		0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
 		0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShakeViewController.xib; sourceTree = "<group>"; };
 		0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */,
 				0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */,
 				0D0221F228B61B7A00B6E2A4 /* start_animation.json */,
+				0D0221F428B6367800B6E2A4 /* wave.json */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				8491935028AE298B006B4012 /* PlayRecordingsViewController.xib in Resources */,
 				0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */,
 				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
+				0D0221F528B6367800B6E2A4 /* wave.json in Resources */,
 				0DD8AD5028ACBA0A00823911 /* MainViewController.xib in Resources */,
 				0D0221F328B61B7A00B6E2A4 /* start_animation.json in Resources */,
 				8491935428AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib in Resources */,

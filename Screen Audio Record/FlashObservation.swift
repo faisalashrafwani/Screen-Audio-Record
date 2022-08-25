@@ -12,4 +12,11 @@ struct FlashObservation: Codable{
     var audioPath : String?
     var duration : Double?
     var pathUrl : URL?
+    var metaData : [EventTime] = []
+}
+
+struct EventTime : Codable {
+    var timeStamp : String
+    var secondOfAudio : Double
+    
 }
