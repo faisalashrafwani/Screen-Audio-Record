@@ -212,7 +212,7 @@ class ShakeViewController:  UIViewController, AVAudioRecorderDelegate {
     // TODO: CAPTURES DATE AND TIME
     func captureDateTime() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH: mm: ssZ"
+        dateFormatter.dateFormat = "E, d MMM yyyy HH: mm: ss Z"
        // dateFormatter.timeZone = TimeZone(identifier: "UTC")
         //dateFormatter.locale = Locale(identifier: "en_US")
         return (dateFormatter.string(from: Date()))

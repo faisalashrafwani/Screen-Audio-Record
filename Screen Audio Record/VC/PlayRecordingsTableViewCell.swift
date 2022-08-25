@@ -29,6 +29,8 @@ class PlayRecordingsTableViewCell: UITableViewCell {
     
     @IBAction func playBtnAction(_ sender: Any) {
         self.callbackPlay?()
+        
+        
     }
     
 }

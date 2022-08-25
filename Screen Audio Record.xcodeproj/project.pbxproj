@@ -34,6 +34,8 @@
 		8491935028AE298B006B4012 /* PlayRecordingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8491934E28AE298B006B4012 /* PlayRecordingsViewController.xib */; };
 		8491935328AE2AC6006B4012 /* PlayRecordingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491935128AE2AC6006B4012 /* PlayRecordingsTableViewCell.swift */; };
 		8491935428AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8491935228AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib */; };
+		8499250A28B779C5006866A7 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499250828B779C5006866A7 /* MediaPlayerViewController.swift */; };
+		8499250B28B779C5006866A7 /* MediaPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8499250928B779C5006866A7 /* MediaPlayerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		8491934E28AE298B006B4012 /* PlayRecordingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayRecordingsViewController.xib; sourceTree = "<group>"; };
 		8491935128AE2AC6006B4012 /* PlayRecordingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRecordingsTableViewCell.swift; sourceTree = "<group>"; };
 		8491935228AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayRecordingsTableViewCell.xib; sourceTree = "<group>"; };
+		8499250828B779C5006866A7 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
+		8499250928B779C5006866A7 /* MediaPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaPlayerViewController.xib; sourceTree = "<group>"; };
 		B182E4AFE1C4107A04DD7BCA /* Pods-Screen Audio Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen Audio Record.debug.xcconfig"; path = "Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record.debug.xcconfig"; sourceTree = "<group>"; };
 		C223F0A6039DE948FEA4DE2A /* Pods_Screen_Audio_Record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Screen_Audio_Record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +97,8 @@
 				0DD8AD5628ACC18B00823911 /* MotionViewController.swift */,
 				0DD8AD5728ACC18B00823911 /* MotionViewController.xib */,
 				0DD8AD5A28ACC58D00823911 /* TapGestureViewController.swift */,
+				8499250828B779C5006866A7 /* MediaPlayerViewController.swift */,
+				8499250928B779C5006866A7 /* MediaPlayerViewController.xib */,
 				0DD8AD5B28ACC58D00823911 /* TapGestureViewController.xib */,
 				0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */,
 				0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */,
@@ -244,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DD8AD5D28ACC58E00823911 /* TapGestureViewController.xib in Resources */,
+				8499250B28B779C5006866A7 /* MediaPlayerViewController.xib in Resources */,
 				8491935028AE298B006B4012 /* PlayRecordingsViewController.xib in Resources */,
 				0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */,
 				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
@@ -312,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DD8AD5C28ACC58E00823911 /* TapGestureViewController.swift in Sources */,
+				8499250A28B779C5006866A7 /* MediaPlayerViewController.swift in Sources */,
 				8491935328AE2AC6006B4012 /* PlayRecordingsTableViewCell.swift in Sources */,
 				0D72C1EA28ACD4DA00F5AB77 /* ShakeViewController.swift in Sources */,
 				0DD8AD4C28ABB6F700823911 /* FlashObservation.swift in Sources */,

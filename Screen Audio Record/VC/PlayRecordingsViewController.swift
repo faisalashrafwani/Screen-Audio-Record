@@ -54,28 +54,15 @@ extension PlayRecordingsViewController: UITableViewDelegate, UITableViewDataSour
             cell.SeqNoView.setTitle(String(recordingList[indexPath.row].metaData.count), for: .normal)
         }
                 
-      
-    
-            
-//            cell.callbackPlay = {
-//                let url = URL(string: self.recordingList[indexPath.row].audioPath ?? "")
-//                self.audioPlayer = try! AVAudioPlayer(contentsOf: url!)
-//                self.audioPlayer.play()
-//            }
         cell.callbackPlay = {
-            let str = self.recordingList[indexPath.row].audioPath
-            let url = URL(string: str!)
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
-                try AVAudioSession.sharedInstance().setActive(true)
-                
-                self.audioPlayer = try AVAudioPlayer(contentsOf: url!)
-                
-                self.audioPlayer.play()
-               
-            } catch {
-                print("inner \(error)")
-            }
+            
+            let mediaPlayerVC = MediaPlayerViewController()
+            
+            mediaPlayerVC.recordList = self.recordingList
+            mediaPlayerVC.position = indexPath.row
+//            self.navigationController?.pushViewController(mediaPlayerVC, animated: true)
+            self.present(mediaPlayerVC, animated: true)
+            
             
         }
         
