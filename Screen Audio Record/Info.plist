@@ -6,6 +6,12 @@
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
+		<false/>
+        <key>UIFileSharingEnabled</key>
+           <true/>
+           <key>LSSupportsOpeningDocumentsInPlace</key>
+           <true/>
 		<key>UISceneConfigurations</key>
 		<dict>
 			<key>UIWindowSceneSessionRoleApplication</key>
@@ -17,11 +23,10 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
+                    
 				</dict>
 			</array>
 		</dict>
 	</dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>App requires Microphone Permissions to record your voice.</string>
 </dict>
 </plist>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D0221F328B61B7A00B6E2A4 /* start_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0221F228B61B7A00B6E2A4 /* start_animation.json */; };
 		0D0221F528B6367800B6E2A4 /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0221F428B6367800B6E2A4 /* wave.json */; };
+		0D0221F928BE43CF00B6E2A4 /* recordedCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D0221F828BE43CF00B6E2A4 /* recordedCompleted.mp3 */; };
 		0D72C1EA28ACD4DA00F5AB77 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */; };
 		0D72C1EB28ACD4DA00F5AB77 /* ShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */; };
 		0D72C1EE28ACD9F200F5AB77 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		0D0221F228B61B7A00B6E2A4 /* start_animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = start_animation.json; sourceTree = "<group>"; };
 		0D0221F428B6367800B6E2A4 /* wave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
+		0D0221F828BE43CF00B6E2A4 /* recordedCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordedCompleted.mp3; sourceTree = "<group>"; };
 		0D72C1E828ACD4DA00F5AB77 /* ShakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
 		0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShakeViewController.xib; sourceTree = "<group>"; };
 		0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				0DF8EC4228B4FC3500EC75BB /* beeeep.mp3 */,
 				0DF8EC4028B4FADC00EC75BB /* beeep.mp3 */,
 				845E6AF028A79A0000E3DC07 /* recordingNow.mp3 */,
+				0D0221F828BE43CF00B6E2A4 /* recordedCompleted.mp3 */,
 				845E6AF128A79A0100E3DC07 /* recordingStopped.mp3 */,
 			);
 			path = Media;
@@ -251,6 +254,7 @@
 			files = (
 				0DD8AD5D28ACC58E00823911 /* TapGestureViewController.xib in Resources */,
 				8499250B28B779C5006866A7 /* MediaPlayerViewController.xib in Resources */,
+				0D0221F928BE43CF00B6E2A4 /* recordedCompleted.mp3 in Resources */,
 				8491935028AE298B006B4012 /* PlayRecordingsViewController.xib in Resources */,
 				0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */,
 				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
@@ -475,7 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = EX4A386PXY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Screen Audio Record/Info.plist";
@@ -491,7 +495,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trialx.flash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -507,7 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = EX4A386PXY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Screen Audio Record/Info.plist";
@@ -523,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trialx.flash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

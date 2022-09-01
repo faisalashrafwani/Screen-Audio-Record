@@ -12,8 +12,21 @@ import Foundation
 import Lottie
 
 class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
+    @IBOutlet weak var totalEventsView: UILabel!
+    @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var gotItButton: UIButton!
     
+    @IBOutlet weak var instructionTV: UITextView!
+    @IBOutlet weak var instructionParentView: UIView!
+    @IBOutlet weak var feedbackView: UIView!
+    @IBOutlet weak var audioMin2: UILabel!
+    @IBOutlet weak var timestamp2: UILabel!
+    @IBOutlet weak var audioMin1: UILabel!
+    @IBOutlet weak var timestamp1: UILabel!
+    @IBOutlet weak var durationView: UILabel!
+    @IBOutlet weak var endTimeView: UILabel!
+    @IBOutlet weak var startTimeView: UILabel!
+    @IBOutlet weak var dateLabelView: UILabel!
     @IBOutlet weak var starterParentView: UIView!
     @IBOutlet weak var starterView: UIView!
     @IBOutlet weak var animationView: AnimationView!
@@ -23,6 +36,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     var timer = Timer()
     var lottieTimer: Timer?
     var starterLabel = 5
+    var timeForActivity = 60
 
     @IBOutlet weak var starterLabelView: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
@@ -33,25 +47,30 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     var isFirstTime = true
    // var observations : [Observation] = []
     var observation = FlashObservation()
-    
+    let dateFormatter = DateFormatter()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
        // showAlert()
+        dateFormatter.dateFormat = "E, d MMM yyyy HH: mm: ss Z"
+        
      
         animationView.isHidden = true
         counterLabel.isHidden = true
         UIApplication.shared.isIdleTimerDisabled = true
         actionButton.isEnabled = false
+        actionButton.layer.cornerRadius = 10
         actionButton.setTitle("Start Recording", for: .normal)
         setupRecorderSession()
-       self.imageView.image = #imageLiteral(resourceName: "final_instruction3")
+
+       self.imageView.image = #imageLiteral(resourceName: "final_instruction7")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1800) {
-          
-            self.finishRecording(success: true)
-        }
+ 
+       
         
         actionButton.isHidden = true
+        
+        updateInstructionUI()
         
 //        starterView.translatesAutoresizingMaskIntoConstraints = false
 //        starterView.layer.cornerRadius = starterView.bounds.width/2
@@ -61,6 +80,8 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         makeCircle(view: starterView)
        
         
+        
+        addSwipeGesture(view: actionButton)
     }
     override func viewDidAppear(_ animated: Bool) {
         MainViewController.observations.removeAll()
@@ -221,6 +242,11 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         audioPlayer = try! AVAudioPlayer(contentsOf: url!)
         audioPlayer.play()
     }
+    func playRecordingCompleted() {
+        let url = Bundle.main.url(forResource: "recordedCompleted", withExtension: "mp3")
+        audioPlayer = try! AVAudioPlayer(contentsOf: url!)
+        audioPlayer.play()
+    }
     
     // TODO: STOPS RECORDING
     func finishRecording(success: Bool) {
@@ -238,7 +264,12 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         observation.duration = audioRecorder.currentTime
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        playRecordingStopped()
+        if success == true {
+           playRecordingCompleted()
+        }else {
+            
+            playRecordingStopped()
+        }
        // self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
         observation.endDate = captureDateTime
@@ -250,6 +281,11 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         } else {
             print("recording failed.")
         }
+        self.animationView.isHidden = true
+        self.updateSummaryUI()
+        self.feedbackView.isHidden = false
+        convertJsonToString(observation: observation)
+        
     }
     
     // TODO: METHOD USED IF INTERRUPTIONS STOP RECORDING
@@ -271,8 +307,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: CAPTURES DATE AND TIME
     func captureDateTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, d MMM yyyy HH: mm: ss Z"
+       
         //dateFormatter.timeZone = TimeZone(identifier: "UTC")
        // dateFormatter.locale = Locale(identifier: "en_US")
         return (dateFormatter.string(from: Date()))
@@ -290,9 +325,10 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             } else {
               //  self.actionButton.setTitle("Start Recording", for: .normal)
         
-                self.finishRecording(success: true)
-                self.animationView.isHidden = true
-                self.showResultAlert()
+                self.finishRecording(success: false)
+               
+                
+               // self.showResultAlert()
                 
             }
         })
@@ -338,17 +374,22 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        finishRecording(success: true)
+        finishRecording(success: false)
     }
     
     
     @IBAction func gotItTapped(_ sender: UIButton) {
         starterParentView.isHidden = false
         self.imageView.isHidden = true
-        gotItButton.isHidden = true
+     //   gotItButton.isHidden = true
+        instructionParentView.isHidden = true
         
+        starterLabel = 5
         starterLabelView.text = String(starterLabel)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + ( Double(UInt64(timeForActivity))*60)) {
+          
+            self.finishRecording(success: true)
+        }
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.imageView.isHidden = true
             self.starterLabel = self.starterLabel - 1
@@ -357,13 +398,15 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             if self.starterLabel == 0 && self.audioRecorder == nil {
                 self.observation = FlashObservation()
               
-                self.actionButton.setTitle("Stop Recording", for: .normal)
+                self.actionButton.setTitle("Swipe to Stop  -->", for: .normal)
+                self.actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+            
                // actionButton.backgroundColor = UIColor.red
               //  actionButton.tintColor = UIColor.red
                 
                 self.actionButton.isEnabled = true
                 self.actionButton.isHidden = false
-                self.gotItButton.isHidden = true
+                //self.gotItButton.isHidden = true
                 self.counterLabel.isHidden = false
                 self.setupAnimation()
                 self.startRecording()
@@ -473,5 +516,202 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
      //               starterView.layer.borderWidth = 2
         }
     
+    
+    func addSwipeGesture(view : UIView){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+           let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+               
+        // leftSwipe.direction = .left
+          rightSwipe.direction = .right
+
+           //view.addGestureRecognizer(leftSwipe)
+           view.addGestureRecognizer(rightSwipe)
+    }
+   
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+        
+        
+        showAlert()
+            
+//        if (sender.direction == .left) {
+//                print("Swipe Left")
+//                }
+//
+//        if (sender.direction == .right) {
+//            print("Swipe Right")
+//             }
+    }
+   
+    
+    func updateSummaryUI(){
+        
+        
+       
+        let dateFt = DateFormatter()
+         
+        dateFt.dateFormat = "HH:mm:ss"
+         
+        startTimeView.text = dateFt.string(from:dateFormatter.date(from: observation.startDate!)! )
+        endTimeView.text = dateFt.string(from:dateFormatter.date(from: observation.endDate!)! )
+        durationView.text = String(Int(observation.duration!))
+        totalEventsView.text = String(observation.metaData.count)
+        deviceNameLabel.text = UIDevice.current.name
+        if (observation.metaData.count > 1){
+            timestamp1.text = "Timestamp : \(dateFt.string(from:dateFormatter.date(from: observation.metaData[0].timeStamp)! ))"
+            
+            
+            var time1 = secondToHourMinSec(seconds: Int(observation.metaData[0].secondOfAudio))
+          
+            audioMin1.text = "Seek Time : \(makeTimeString(hours: time1.0, minutes: time1.1, seconds: time1.2))"
+           
+            timestamp2.text = "Timestamp : \(dateFt.string(from:dateFormatter.date(from: observation.metaData[1].timeStamp)! ))"
+            var time2 = secondToHourMinSec(seconds: Int(observation.metaData[1].secondOfAudio))
+          
+            audioMin2.text = "Seek Time : \(makeTimeString(hours: time2.0, minutes: time2.1, seconds: time2.2))"
+        }
+      
+    }
+
+
+    
+    @IBAction func okButton(_ sender: UIButton) {
+        feedbackView.isHidden = true
+        instructionParentView.isHidden = false
+        
+       // self.navigationController?.popViewController(animated: true)
+
+    }
+    func  updateInstructionUI(){
+       
+        let bullet = "•  "
+        
+        var strings = [String]()
+        strings.append("Activity will record your audio continuously for \(self.timeForActivity) minutes.")
+        strings.append("Activity will autocomplete after \(self.timeForActivity) minutes or you can stop it anytime by tapping on the Stop button.")
+        strings.append("This is a one time activity and cannot be restarted.")
+        strings.append("When you see the Light Flash tap anywhere on the screen using 2 fingers to capture the timestamp. This will be followed by a beep sound to confirm your Tap was successful.")
+        strings.append("Describe the nature of Light Flash verbally when you see the Light Flash.")
+        strings.append("You will get the Activity summary once it is completed.")
+        strings.append("Tap the Start button to start the Audio recording.")
+      
+        strings = strings.map { return bullet + $0 }
+        
+        var attributes = [NSAttributedString.Key: Any]()
+        attributes[.font] = UIFont.systemFont(ofSize: 24)
+        attributes[.foregroundColor] = UIColor.darkGray
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = (bullet as NSString).size(withAttributes: attributes).width
+        attributes[.paragraphStyle] = paragraphStyle
+
+        let string = strings.joined(separator: "\n\n")
+        instructionTV.attributedText = NSAttributedString(string: string, attributes: attributes)
+
+        
+    }
+    @IBAction func timerButtonClicked(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Timer", message: "Please enter time in seconds", preferredStyle: .alert)
+                alert.addTextField { (textField) in
+                    textField.placeholder = "Time in Minutes"
+                    textField.keyboardType = .phonePad
+                }
+
+                alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
+                    guard let textField = alert?.textFields?[0], let userText = textField.text else { return
+                        
+                    }
+                   var text = textField.text
+                    self.timeForActivity = Int(userText) ?? 60
+                    self.updateInstructionUI()
+                    //print("User text: \(userText)")
+                }))
+
+        
+                self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func downloadTapped(_ sender: UIButton) {
+        saveData()
+    }
+    func saveData(){
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let logFileName = url?.appendingPathComponent("file.text")
+        
+        
+        FileManager.default.createFile(atPath: logFileName!.path, contents: nil, attributes: nil)
+    }
+    func stringify(json: Any, prettyPrinted: Bool = false) -> String {
+        var options: JSONSerialization.WritingOptions = []
+        if prettyPrinted {
+          options = JSONSerialization.WritingOptions.prettyPrinted
+        }
+
+        do {
+          let data = try JSONSerialization.data(withJSONObject: json, options: options)
+          if let string = String(data: data, encoding: String.Encoding.utf8) {
+            return string
+          }
+        } catch {
+          print(error)
+        }
+
+        return ""
+    }
+    
+    
+    func convertJsonToString(observation : FlashObservation){
+        
+        do {
+           //let data = try JSONEncoder().encode(observation)
+            let data = observation.toString()
+           // The JSON data is in bytes. Let's printit as a JSON string.
+           if let jsonString =  observation.toString(){
+               let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("output.txt")
+
+               do {
+                   try jsonString.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+               } catch {
+                   print("exception")
+                   // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+               }
+               print(jsonString)
+               sharedata()
+           }
+         
+           
+        } catch let err {
+            print("Failed to encode JSON")
+        }
+    }
+    
+    func sharedata(){
+        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("output.txt")
+
+
+        let fileURL = NSURL(fileURLWithPath: filename.path)
+
+        // Create the Array which includes the files you want to share
+        var filesToShare = [Any]()
+
+        // Add the path of the file to the Array
+        filesToShare.append(fileURL)
+       // let text = "This is some text that I want to share."
+
+             // set up activity view controller
+           //  let textToShare = [ text ]
+        // Make the activityViewContoller which shows the share-view
+        let activityViewController = UIActivityViewController(activityItems:filesToShare, applicationActivities: nil)
+
+        
+        
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.popoverPresentationController?.sourceRect  = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY,width: 0,height: 0)
+        self.present(activityViewController, animated: true, completion: nil)
+        // Show the share-view
+        //elf.navigationController!.present(activityViewController, animated: true, completion: nil)
+        
+        
+    }
 }
 

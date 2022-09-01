@@ -39,7 +39,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3ai-p7-Hhq">
-                    <rect key="frame" x="128" y="514.5" width="768" height="478"/>
+                    <rect key="frame" x="128" y="446" width="768" height="478"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-DO-lGs">
                             <rect key="frame" x="0.0" y="0.0" width="768" height="104.5"/>
@@ -73,7 +73,7 @@
                             <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647058823526" green="0.43529411764705883" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="record" title="          Record automatically for 30 Minutes">
+                            <buttonConfiguration key="configuration" style="filled" image="record" title="          Record automatically for 60 Minutes">
                                 <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
                                 <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,7 +103,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="1.1" id="CkJ-N6-mUb"/>
+                <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="CkJ-N6-mUb"/>
                 <constraint firstItem="3ai-p7-Hhq" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Dai-HA-iEI"/>
                 <constraint firstItem="5oI-lT-PMb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U6i-fZ-fg9"/>
                 <constraint firstItem="5oI-lT-PMb" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.5" id="Uml-Ad-e00"/>
