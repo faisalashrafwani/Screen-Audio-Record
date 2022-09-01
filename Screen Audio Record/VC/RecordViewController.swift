@@ -749,8 +749,9 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         let model = UIDevice.current.model
         let os = UIDevice.current.systemName
         let osVer = UIDevice.current.systemVersion
+        let deviceName = UIDevice.current.name
         
-        return "\n\n Device Details: \n\n Device Model : \(model) \n\n Device Type : \(os) \n\n Device OS Version: \(osVer) \n\n "
+        return "\n\n Device Details: \n\n Device Name: \(deviceName) \n\n Device Model : \(model) \n\n Device Type : \(os) \n\n Device OS Version: \(osVer) \n\n "
     }
     
     func getTapLogs () -> String? {
