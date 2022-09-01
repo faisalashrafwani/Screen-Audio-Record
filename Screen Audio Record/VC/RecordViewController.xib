@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,6 +18,7 @@
                 <outlet property="counterLabel" destination="pkj-Bi-8X0" id="roD-ya-AQr"/>
                 <outlet property="dateLabelView" destination="M8K-b3-bm3" id="MwL-lm-Mdo"/>
                 <outlet property="deviceNameLabel" destination="hnj-EF-Hgm" id="rX5-V6-l4Y"/>
+                <outlet property="downloadLogButton" destination="sy8-kt-PkL" id="BOK-mp-lMb"/>
                 <outlet property="durationView" destination="QhP-81-E4j" id="bjP-fm-4zL"/>
                 <outlet property="endTimeView" destination="DBc-sl-NLM" id="b0c-vQ-AkU"/>
                 <outlet property="feedbackView" destination="WTV-y1-wwA" id="F0G-nc-cNJ"/>
@@ -25,6 +26,7 @@
                 <outlet property="imageView" destination="7K9-Yd-eaU" id="E6b-8X-wKF"/>
                 <outlet property="instructionParentView" destination="hsa-WW-HTC" id="mdb-Sr-glb"/>
                 <outlet property="instructionTV" destination="7iG-q4-ZhP" id="3Fv-vt-Xck"/>
+                <outlet property="playSavedRecordingButton" destination="n0o-Ms-eXM" id="IPC-mD-9DE"/>
                 <outlet property="recordView" destination="uuk-bF-1x9" id="iIC-Sz-1YU"/>
                 <outlet property="startTimeView" destination="xLG-sK-6Ke" id="V6j-zI-Tqx"/>
                 <outlet property="starterLabelView" destination="UpV-jp-FVH" id="f8B-1q-aVZ"/>
@@ -110,7 +112,7 @@
                             </buttonConfiguration>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-oW-yZv" userLabel="Got it">
-                            <rect key="frame" x="307" y="1168" width="410" height="44"/>
+                            <rect key="frame" x="307" y="1174.5" width="410" height="30.5"/>
                             <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <buttonConfiguration key="configuration" style="plain" title="START">
@@ -121,6 +123,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="bj7-oW-yZv" firstAttribute="height" secondItem="uuk-bF-1x9" secondAttribute="height" multiplier="0.0230312" id="1OU-gX-8bs"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.6" id="3gn-Zq-fN7"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="3tX-bd-xew"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.8" id="BeP-B7-2T5"/>
@@ -144,14 +147,14 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hw2-xY-QZh" userLabel="title Stack View">
                             <rect key="frame" x="153.5" y="90" width="717" height="84"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose gestures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="XzJ-Q2-A8O" userLabel="title">
-                                    <rect key="frame" x="207" y="0.0" width="303.5" height="50.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flash Motion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="XzJ-Q2-A8O" userLabel="title">
+                                    <rect key="frame" x="243.5" y="0.0" width="230" height="50.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                     <color key="textColor" red="0.1215686275" green="0.1137254902" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose gestures that you like for your recording." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-xB-b7O" userLabel="sub title">
-                                    <rect key="frame" x="107" y="58.5" width="503" height="25.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flash Motion app records your voice" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.64999997615814209" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-xB-b7O" userLabel="sub title">
+                                    <rect key="frame" x="194" y="58.5" width="329.5" height="25.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                     <color key="textColor" red="0.35686274509999999" green="0.34509803919999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -175,7 +178,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T0-4J-Jem" userLabel="Got it">
-                            <rect key="frame" x="307" y="1168" width="410" height="44"/>
+                            <rect key="frame" x="307" y="1163.5" width="410" height="52.5"/>
                             <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <buttonConfiguration key="configuration" style="plain" title="START">
@@ -184,6 +187,16 @@
                             </buttonConfiguration>
                             <connections>
                                 <action selector="gotItTapped:" destination="-1" eventType="touchUpInside" id="8ip-du-HCm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0o-Ms-eXM">
+                            <rect key="frame" x="307" y="1223" width="410" height="52.5"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Play saved recordings"/>
+                            <connections>
+                                <action selector="playSavedRecordingButtonTapped:" destination="-1" eventType="touchUpInside" id="zLx-4T-oF7"/>
                             </connections>
                         </button>
                     </subviews>
@@ -196,10 +209,15 @@
                         <constraint firstAttribute="trailing" secondItem="7iG-q4-ZhP" secondAttribute="trailing" constant="20" id="LXK-7x-ihR"/>
                         <constraint firstItem="hw2-xY-QZh" firstAttribute="centerX" secondItem="hsa-WW-HTC" secondAttribute="centerX" id="QNl-bq-dtg"/>
                         <constraint firstItem="7iG-q4-ZhP" firstAttribute="leading" secondItem="hsa-WW-HTC" secondAttribute="leading" constant="20" id="U5c-gQ-fky"/>
+                        <constraint firstItem="n0o-Ms-eXM" firstAttribute="centerX" secondItem="hsa-WW-HTC" secondAttribute="centerX" id="Znf-2y-mjh"/>
                         <constraint firstItem="7iG-q4-ZhP" firstAttribute="height" secondItem="hsa-WW-HTC" secondAttribute="height" multiplier="0.6" id="aRm-eN-p3K"/>
+                        <constraint firstItem="n0o-Ms-eXM" firstAttribute="height" secondItem="hsa-WW-HTC" secondAttribute="height" multiplier="0.04" id="cuY-XN-tCa"/>
                         <constraint firstItem="9T0-4J-Jem" firstAttribute="centerY" secondItem="hsa-WW-HTC" secondAttribute="centerY" multiplier="1.8" id="hfP-Vk-LUx"/>
+                        <constraint firstItem="n0o-Ms-eXM" firstAttribute="centerY" secondItem="hsa-WW-HTC" secondAttribute="centerY" multiplier="1.89" id="lfm-MC-ybg"/>
+                        <constraint firstItem="n0o-Ms-eXM" firstAttribute="width" secondItem="hsa-WW-HTC" secondAttribute="width" multiplier="0.4" id="pSK-v3-CjU"/>
                         <constraint firstItem="hw2-xY-QZh" firstAttribute="centerY" secondItem="hsa-WW-HTC" secondAttribute="centerY" multiplier="0.2" id="pjR-A0-lGa"/>
                         <constraint firstItem="hw2-xY-QZh" firstAttribute="width" secondItem="hsa-WW-HTC" secondAttribute="width" multiplier="0.7" id="vdE-Af-QQJ"/>
+                        <constraint firstItem="9T0-4J-Jem" firstAttribute="height" secondItem="hsa-WW-HTC" secondAttribute="height" multiplier="0.04" id="yJ6-1H-PKJ"/>
                         <constraint firstItem="9T0-4J-Jem" firstAttribute="width" secondItem="hsa-WW-HTC" secondAttribute="width" multiplier="0.4" id="yVn-fU-EHm"/>
                     </constraints>
                 </view>
@@ -394,14 +412,8 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m7-Ki-ZuS">
-                            <rect key="frame" x="185.5" y="779.5" width="68" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBs-Q5-sj6">
-                            <rect key="frame" x="307" y="1135" width="410" height="31"/>
+                            <rect key="frame" x="307" y="1123.5" width="410" height="31"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Download"/>
                             <connections>
@@ -409,13 +421,24 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tso-QM-igm" userLabel="OK button">
-                            <rect key="frame" x="307" y="1196" width="410" height="31"/>
+                            <rect key="frame" x="307" y="1184.5" width="410" height="54"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Done">
                                 <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
                             <connections>
                                 <action selector="okButton:" destination="-1" eventType="touchUpInside" id="k10-35-jQG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sy8-kt-PkL">
+                            <rect key="frame" x="185.5" y="799.5" width="153.5" height="31"/>
+                            <color key="backgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="tintColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Download Log File"/>
+                            <connections>
+                                <action selector="downloadLogButtonTapped:" destination="-1" eventType="touchUpInside" id="dXG-iO-trE"/>
                             </connections>
                         </button>
                     </subviews>
@@ -428,16 +451,19 @@
                         <constraint firstItem="qKQ-NH-zMP" firstAttribute="centerY" secondItem="WTV-y1-wwA" secondAttribute="centerY" multiplier="0.25" constant="0.25" id="LOz-cF-9XB"/>
                         <constraint firstItem="OB7-Wj-kyv" firstAttribute="height" secondItem="WTV-y1-wwA" secondAttribute="height" multiplier="0.1" id="Lrt-tl-MEa"/>
                         <constraint firstItem="tso-QM-igm" firstAttribute="centerY" secondItem="WTV-y1-wwA" secondAttribute="centerY" multiplier="1.8" id="Mfh-Th-a3f"/>
+                        <constraint firstItem="sy8-kt-PkL" firstAttribute="leading" secondItem="OB7-Wj-kyv" secondAttribute="leading" id="NZB-FD-44V"/>
                         <constraint firstItem="aFc-vz-lve" firstAttribute="leading" secondItem="qKQ-NH-zMP" secondAttribute="leading" id="OLP-CO-Vff"/>
                         <constraint firstItem="OB7-Wj-kyv" firstAttribute="width" secondItem="WTV-y1-wwA" secondAttribute="width" multiplier="0.9" id="OXc-Df-cJ6"/>
                         <constraint firstItem="tso-QM-igm" firstAttribute="centerX" secondItem="WTV-y1-wwA" secondAttribute="centerX" id="PGd-j8-dxV"/>
-                        <constraint firstItem="OBs-Q5-sj6" firstAttribute="height" secondItem="tso-QM-igm" secondAttribute="height" id="Q2u-Xh-pNf"/>
+                        <constraint firstItem="tso-QM-igm" firstAttribute="height" secondItem="WTV-y1-wwA" secondAttribute="height" multiplier="0.04" id="TF7-we-FQ6"/>
                         <constraint firstItem="OB7-Wj-kyv" firstAttribute="leading" secondItem="8WQ-Xj-J81" secondAttribute="leading" id="UlP-ye-4No"/>
                         <constraint firstItem="hnj-EF-Hgm" firstAttribute="top" secondItem="WTV-y1-wwA" secondAttribute="top" constant="30" id="Vzj-84-EDo"/>
+                        <constraint firstItem="sy8-kt-PkL" firstAttribute="width" secondItem="WTV-y1-wwA" secondAttribute="width" multiplier="0.15" id="ZRj-3i-gzW"/>
                         <constraint firstItem="tso-QM-igm" firstAttribute="top" secondItem="OBs-Q5-sj6" secondAttribute="bottom" constant="30" id="Zwt-X7-TsT"/>
-                        <constraint firstItem="1m7-Ki-ZuS" firstAttribute="leading" secondItem="OB7-Wj-kyv" secondAttribute="leading" id="bpv-sl-UNu"/>
-                        <constraint firstItem="OB7-Wj-kyv" firstAttribute="bottom" secondItem="1m7-Ki-ZuS" secondAttribute="top" constant="10" id="dRF-0c-tZW"/>
                         <constraint firstItem="OBs-Q5-sj6" firstAttribute="centerX" secondItem="tso-QM-igm" secondAttribute="centerX" id="eYz-xT-ypy"/>
+                        <constraint firstItem="sy8-kt-PkL" firstAttribute="height" secondItem="WTV-y1-wwA" secondAttribute="height" multiplier="0.0230312" id="eeS-os-rFe"/>
+                        <constraint firstItem="sy8-kt-PkL" firstAttribute="top" secondItem="OB7-Wj-kyv" secondAttribute="bottom" constant="10" id="fOi-UT-Jal"/>
+                        <constraint firstItem="OB7-Wj-kyv" firstAttribute="top" secondItem="8WQ-Xj-J81" secondAttribute="bottom" constant="96" id="gPa-Ua-Qff"/>
                         <constraint firstItem="8WQ-Xj-J81" firstAttribute="height" secondItem="WTV-y1-wwA" secondAttribute="height" multiplier="0.25" id="hK9-bd-LII"/>
                         <constraint firstItem="8WQ-Xj-J81" firstAttribute="top" secondItem="qKQ-NH-zMP" secondAttribute="bottom" constant="30" id="iXy-p8-r0N"/>
                         <constraint firstItem="tso-QM-igm" firstAttribute="width" secondItem="WTV-y1-wwA" secondAttribute="width" multiplier="0.4" id="oqp-wj-TlS"/>
@@ -476,6 +502,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="71.651785714285708"/>
         </view>
     </objects>
+    <designables>
+        <designable name="w31-R4-f0z"/>
+    </designables>
     <resources>
         <image name="timer" width="50" height="50"/>
         <systemColor name="labelColor">
