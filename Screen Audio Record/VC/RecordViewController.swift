@@ -92,7 +92,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        MainViewController.observations.removeAll()
+        //        MainViewController.observations.removeAll()
         
     }
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
