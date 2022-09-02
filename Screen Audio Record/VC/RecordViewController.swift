@@ -38,7 +38,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     var lottieTimer: Timer?
     var starterLabel = 5
     var timeForActivity = 60
-
+    
     @IBOutlet weak var starterLabelView: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -49,18 +49,18 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer = AVAudioPlayer()
     var isFirstTime = true
-   // var observations : [Observation] = []
+    // var observations : [Observation] = []
     var observation = FlashObservation()
     let dateFormatter = DateFormatter()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // showAlert()
+        // showAlert()
         
         
         dateFormatter.dateFormat = "E, d MMM yyyy HH: mm: ss Z"
         
-     
+        
         animationView.isHidden = true
         counterLabel.isHidden = true
         UIApplication.shared.isIdleTimerDisabled = true
@@ -68,21 +68,21 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         actionButton.layer.cornerRadius = 10
         actionButton.setTitle("Start Recording", for: .normal)
         setupRecorderSession()
-
-       self.imageView.image = #imageLiteral(resourceName: "final_instruction7")
         
- 
-       
+        self.imageView.image = #imageLiteral(resourceName: "final_instruction7")
+        
+        
+        
         
         actionButton.isHidden = true
         
         updateInstructionUI()
         
-//        starterView.translatesAutoresizingMaskIntoConstraints = false
-//        starterView.layer.cornerRadius = starterView.bounds.width/2
-//
-//               starterView.layer.borderColor =  UIColor.black.cgColor
-//               starterView.layer.borderWidth = 2
+        //        starterView.translatesAutoresizingMaskIntoConstraints = false
+        //        starterView.layer.cornerRadius = starterView.bounds.width/2
+        //
+        //               starterView.layer.borderColor =  UIColor.black.cgColor
+        //               starterView.layer.borderWidth = 2
         makeCircle(view: starterView)
         
         addSwipeGesture(view: actionButton)
@@ -93,7 +93,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         MainViewController.observations.removeAll()
-   
+        
     }
     @IBAction func ActionButtonClicked(_ sender: UIButton) {
         showAlert()
@@ -154,7 +154,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
                         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.gestureFired(_:)))
                         gestureRecognizer.numberOfTapsRequired = 1
                         gestureRecognizer.numberOfTouchesRequired = 2
-
+                        
                         // TODO: SETTING GESTURE RECOGNIZER TO FILE
                         self.recordView.addGestureRecognizer(gestureRecognizer)
                         self.recordView.isUserInteractionEnabled = true
@@ -171,23 +171,23 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: HANDLES SCREEN SINGLE TAP GESTURES
     @objc func gestureFired(_ gesture: UITapGestureRecognizer) {
-//        if isFirstTime{
-//            isFirstTime = false
-//            self.imageView.image = #imageLiteral(resourceName: "start")
-//            return
-//        }
-//        if audioRecorder == nil {
-//           observation = FlashObservation()
-//
-//            startRecording()
-//        } else {
-//            finishRecording(success: true)
-//        }
+        //        if isFirstTime{
+        //            isFirstTime = false
+        //            self.imageView.image = #imageLiteral(resourceName: "start")
+        //            return
+        //        }
+        //        if audioRecorder == nil {
+        //           observation = FlashObservation()
+        //
+        //            startRecording()
+        //        } else {
+        //            finishRecording(success: true)
+        //        }
         
         
         //AudioServicesPlayAlertSound(SystemSoundID(1322))
         
-      //  AudioServicesPlaySystemSound(SystemSoundID(1322))
+        //  AudioServicesPlaySystemSound(SystemSoundID(1322))
         
         if  audioRecorder != nil && audioRecorder.isRecording {
             observation.metaData.append(EventTime(timeStamp: captureDateTime(), secondOfAudio: audioRecorder.currentTime))
@@ -195,7 +195,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             audioPlayer = try! AVAudioPlayer(contentsOf: url!)
             audioPlayer.play()
         }
-      
+        
     }
     
     // TODO: STARTS RECORDING VOICE
@@ -203,13 +203,13 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         animationView.isHidden = false
         counterLabel.isHidden = false
         startCounter()
-    
+        
         self.imageView.image = #imageLiteral(resourceName: "recording_started")
         let captureDateTime = captureDateTime()
         let audioFilename = getDocumentsDirectory().appendingPathComponent("\(UIDevice.current.name)_\(captureDateTime).m4a")
         do{
             try observation.audioPath = audioFilename.absoluteString
-         
+            
         }catch {
             
         }
@@ -274,18 +274,18 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             return
         }
         actionButton.isEnabled = false
-       self.imageView.image = #imageLiteral(resourceName: "recording_stopped")
+        self.imageView.image = #imageLiteral(resourceName: "recording_stopped")
         let captureDateTime = captureDateTime()
         observation.duration = audioRecorder.currentTime
         audioRecorder.stop()
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         if success == true {
-           playRecordingCompleted()
+            playRecordingCompleted()
         }else {
             
             playRecordingStopped()
         }
-       // self.recordView.backgroundColor = UIColor.red
+        // self.recordView.backgroundColor = UIColor.red
         print("End Time: \(captureDateTime)\n")
         observation.endDate = captureDateTime
         MainViewController.observations.append(observation)
@@ -322,9 +322,9 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     // TODO: CAPTURES DATE AND TIME
     func captureDateTime() -> String {
-       
+        
         //dateFormatter.timeZone = TimeZone(identifier: "UTC")
-       // dateFormatter.locale = Locale(identifier: "en_US")
+        // dateFormatter.locale = Locale(identifier: "en_US")
         return (dateFormatter.string(from: Date()))
     }
     
@@ -333,17 +333,17 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         
         // Create OK button with action handler
         let ok = UIAlertAction(title: "Stop", style: .default, handler: { (action) -> Void in
-           
+            
             
             if self.audioRecorder == nil {
-               
-            } else {
-              //  self.actionButton.setTitle("Start Recording", for: .normal)
-        
-                self.finishRecording(success: false)
-               
                 
-               // self.showResultAlert()
+            } else {
+                //  self.actionButton.setTitle("Start Recording", for: .normal)
+                
+                self.finishRecording(success: false)
+                
+                
+                // self.showResultAlert()
                 
             }
         })
@@ -361,14 +361,14 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             self.present(dialogMessage, animated: true, completion: nil)
         }
         // Present alert message to user
-       // self.present(dialogMessage, animated: true, completion: nil)
+        // self.present(dialogMessage, animated: true, completion: nil)
     }
     func showResultAlert(){
         let dialogMessage = UIAlertController(title: "Flash Monitor", message: "Number of times Flash recorded : \(observation.metaData.count) ", preferredStyle: .alert)
         
         // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-           
+            
             self.navigationController?.popViewController(animated: true)
         })
         
@@ -379,13 +379,13 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         
         //Add OK and Cancel button to an Alert object
         dialogMessage.addAction(ok)
-      //  dialogMessage.addAction(cancel)
+        //  dialogMessage.addAction(cancel)
         
         DispatchQueue.main.async {
             self.present(dialogMessage, animated: true, completion: nil)
         }
         // Present alert message to user
-       // self.present(dialogMessage, animated: true, completion: nil)
+        // self.present(dialogMessage, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -396,13 +396,13 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     @IBAction func gotItTapped(_ sender: UIButton) {
         starterParentView.isHidden = false
         self.imageView.isHidden = true
-     //   gotItButton.isHidden = true
+        //   gotItButton.isHidden = true
         instructionParentView.isHidden = true
         
         starterLabel = 5
         starterLabelView.text = String(starterLabel)
         DispatchQueue.main.asyncAfter(deadline: .now() + ( Double(UInt64(timeForActivity))*60)) {
-          
+            
             self.finishRecording(success: true)
         }
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
@@ -412,12 +412,12 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             
             if self.starterLabel == 0 && self.audioRecorder == nil {
                 self.observation = FlashObservation()
-              
+                
                 self.actionButton.setTitle("Swipe to Stop  -->", for: .normal)
                 self.actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-            
-               // actionButton.backgroundColor = UIColor.red
-              //  actionButton.tintColor = UIColor.red
+                
+                // actionButton.backgroundColor = UIColor.red
+                //  actionButton.tintColor = UIColor.red
                 
                 self.actionButton.isEnabled = true
                 self.actionButton.isHidden = false
@@ -428,34 +428,34 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
                 self.starterParentView.isHidden = true
                 timer.invalidate()
             }
-
-//            if randomNumber == 10 {
-//                timer.invalidate()
-//            }
+            
+            //            if randomNumber == 10 {
+            //                timer.invalidate()
+            //            }
         }
         
         
         
         
-//        animationView.play(completion: {_ in
-//           // self.animationView.isHidden = true
-//            self.imageView.isHidden = true
-//
-//            if self.audioRecorder == nil {
-//                self.observation = FlashObservation()
-//
-//                self.actionButton.setTitle("Stop Recording", for: .normal)
-//               // actionButton.backgroundColor = UIColor.red
-//              //  actionButton.tintColor = UIColor.red
-//
-//                self.actionButton.isEnabled = true
-//                self.actionButton.isHidden = false
-//                self.gotItButton.isHidden = true
-//                self.counterLabel.isHidden = false
-//                self.setupAnimation()
-//                self.startRecording()
-//            }
-      //  })
+        //        animationView.play(completion: {_ in
+        //           // self.animationView.isHidden = true
+        //            self.imageView.isHidden = true
+        //
+        //            if self.audioRecorder == nil {
+        //                self.observation = FlashObservation()
+        //
+        //                self.actionButton.setTitle("Stop Recording", for: .normal)
+        //               // actionButton.backgroundColor = UIColor.red
+        //              //  actionButton.tintColor = UIColor.red
+        //
+        //                self.actionButton.isEnabled = true
+        //                self.actionButton.isHidden = false
+        //                self.gotItButton.isHidden = true
+        //                self.counterLabel.isHidden = false
+        //                self.setupAnimation()
+        //                self.startRecording()
+        //            }
+        //  })
         
         
         
@@ -481,16 +481,16 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     func startCounter(){
         counter = 0
-
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     // called every time interval from the timer
     @objc func timerAction() {
-            counter += 1
+        counter += 1
         var time = secondToHourMinSec(seconds: counter)
         counterLabel.text = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-           // label.text = "\(counter)"
-        }
+        // label.text = "\(counter)"
+    }
     
     func secondToHourMinSec(seconds : Int) -> (Int, Int, Int){
         return ((seconds/3600),((seconds%3600)/60),((seconds%3600)%60))
@@ -504,68 +504,68 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         timeString += String(format : "%02d", minutes)
         timeString += " : "
         timeString += String(format : "%02d", seconds)
-    
-         return timeString
+        
+        return timeString
     }
     
     func makeCircle (view: UIView) {
-            view.clipsToBounds = true
-            let height = view.frame.size.height
-            let width = view.frame.size.width
-            let newHeight = max(height, width) // use "max" if you want big circle
-
-            var rectFrame = view.frame
-            rectFrame.size.height = newHeight
-            rectFrame.size.width = newHeight
-            view.frame = rectFrame
-            view.layer.cornerRadius = newHeight/2
+        view.clipsToBounds = true
+        let height = view.frame.size.height
+        let width = view.frame.size.width
+        let newHeight = max(height, width) // use "max" if you want big circle
         
-         view.layer.borderColor =  UIColor.black.cgColor
+        var rectFrame = view.frame
+        rectFrame.size.height = newHeight
+        rectFrame.size.width = newHeight
+        view.frame = rectFrame
+        view.layer.cornerRadius = newHeight/2
+        
+        view.layer.borderColor =  UIColor.black.cgColor
         view.layer.borderWidth = 2
         
         //               starterView.layer.borderWidth = 2
-      //  starterView.translatesAutoresizingMaskIntoConstraints = false
-     //        starterView.layer.cornerRadius = starterView.bounds.width/2
-     //
-     //               starterView.layer.borderColor =  UIColor.black.cgColor
-     //               starterView.layer.borderWidth = 2
-        }
+        //  starterView.translatesAutoresizingMaskIntoConstraints = false
+        //        starterView.layer.cornerRadius = starterView.bounds.width/2
+        //
+        //               starterView.layer.borderColor =  UIColor.black.cgColor
+        //               starterView.layer.borderWidth = 2
+    }
     
     
     func addSwipeGesture(view : UIView){
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-           let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-               
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
         // leftSwipe.direction = .left
-          rightSwipe.direction = .right
-
-           //view.addGestureRecognizer(leftSwipe)
-           view.addGestureRecognizer(rightSwipe)
+        rightSwipe.direction = .right
+        
+        //view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
-   
+    
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         
         
         showAlert()
-            
-//        if (sender.direction == .left) {
-//                print("Swipe Left")
-//                }
-//
-//        if (sender.direction == .right) {
-//            print("Swipe Right")
-//             }
+        
+        //        if (sender.direction == .left) {
+        //                print("Swipe Left")
+        //                }
+        //
+        //        if (sender.direction == .right) {
+        //            print("Swipe Right")
+        //             }
     }
-   
+    
     
     func updateSummaryUI(){
         
         
-       
+        
         let dateFt = DateFormatter()
-         
+        
         dateFt.dateFormat = "HH:mm:ss"
-         
+        
         startTimeView.text = dateFt.string(from:dateFormatter.date(from: observation.startDate!)! )
         endTimeView.text = dateFt.string(from:dateFormatter.date(from: observation.endDate!)! )
         durationView.text = String(Int(observation.duration!))
@@ -577,24 +577,24 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             
             
             var time1 = secondToHourMinSec(seconds: Int(observation.metaData[0].secondOfAudio))
-          
+            
             audioMin1.text = "Seek Time : \(makeTimeString(hours: time1.0, minutes: time1.1, seconds: time1.2))"
-           
+            
             timestamp2.text = "Timestamp : \(dateFt.string(from:dateFormatter.date(from: observation.metaData[1].timeStamp)! ))"
             var time2 = secondToHourMinSec(seconds: Int(observation.metaData[1].secondOfAudio))
-          
+            
             audioMin2.text = "Seek Time : \(makeTimeString(hours: time2.0, minutes: time2.1, seconds: time2.2))"
         }
-      
+        
     }
-
-
+    
+    
     
     @IBAction func okButton(_ sender: UIButton) {
         feedbackView.isHidden = true
         instructionParentView.isHidden = false
         
-       // self.navigationController?.popViewController(animated: true)
+        // self.navigationController?.popViewController(animated: true)
         
         if  MainViewController.observations.count <= 0 {
             playSavedRecordingButton.isHidden = true
@@ -603,10 +603,10 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             playSavedRecordingButton.isHidden = false
             
         }
-
+        
     }
     func  updateInstructionUI(){
-       
+        
         let bullet = "•  "
         
         var strings = [String]()
@@ -618,7 +618,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         strings.append("Describe the nature of Light Flash verbally when you see the Light Flash.")
         strings.append("You will get the Activity summary once it is completed.")
         strings.append("Tap the Start button to start the Audio recording.")
-      
+        
         strings = strings.map { return bullet + $0 }
         
         var attributes = [NSAttributedString.Key: Any]()
@@ -628,31 +628,33 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.headIndent = (bullet as NSString).size(withAttributes: attributes).width
         attributes[.paragraphStyle] = paragraphStyle
-
+        
         let string = strings.joined(separator: "\n\n")
         instructionTV.attributedText = NSAttributedString(string: string, attributes: attributes)
-
+        
         
     }
     @IBAction func timerButtonClicked(_ sender: UIButton) {
         let alert = UIAlertController(title: "Timer", message: "Please enter time in Minutes", preferredStyle: .alert)
-                alert.addTextField { (textField) in
-                    textField.placeholder = "Time in Minutes"
-                    textField.keyboardType = .phonePad
-                }
-
-                alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
-                    guard let textField = alert?.textFields?[0], let userText = textField.text else { return
-                        
-                    }
-                   var text = textField.text
-                    self.timeForActivity = Int(userText) ?? 60
-                    self.updateInstructionUI()
-                    //print("User text: \(userText)")
-                }))
-
         
-                self.present(alert, animated: true, completion: nil)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Time in Minutes"
+            textField.keyboardType = .phonePad
+        }
+        
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
+            guard let textField = alert?.textFields?[0], let userText = textField.text else { return
+                
+            }
+            var text = textField.text
+            self.timeForActivity = Int(userText) ?? 60
+            self.updateInstructionUI()
+            //print("User text: \(userText)")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -669,18 +671,18 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     func stringify(json: Any, prettyPrinted: Bool = false) -> String {
         var options: JSONSerialization.WritingOptions = []
         if prettyPrinted {
-          options = JSONSerialization.WritingOptions.prettyPrinted
+            options = JSONSerialization.WritingOptions.prettyPrinted
         }
-
+        
         do {
-          let data = try JSONSerialization.data(withJSONObject: json, options: options)
-          if let string = String(data: data, encoding: String.Encoding.utf8) {
-            return string
-          }
+            let data = try JSONSerialization.data(withJSONObject: json, options: options)
+            if let string = String(data: data, encoding: String.Encoding.utf8) {
+                return string
+            }
         } catch {
-          print(error)
+            print(error)
         }
-
+        
         return ""
     }
     
@@ -688,7 +690,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     func convertJsonToString(observation : FlashObservation){
         
         do {
-           //let data = try JSONEncoder().encode(observation)
+            //let data = try JSONEncoder().encode(observation)
             var data = observation.toString()
             
             
@@ -697,21 +699,21 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             
             
             
-           // The JSON data is in bytes. Let's printit as a JSON string.
-           if let jsonString =  data {
-               let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("log.txt")
-
-               do {
-                   try jsonString.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-               } catch {
-                   print("exception")
-                   // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
-               }
-               print(jsonString)
-               //sharedata()
-           }
-         
-           
+            // The JSON data is in bytes. Let's printit as a JSON string.
+            if let jsonString =  data {
+                let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("log.txt")
+                
+                do {
+                    try jsonString.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+                } catch {
+                    print("exception")
+                    // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+                }
+                print(jsonString)
+                //sharedata()
+            }
+            
+            
         } catch let err {
             print("Failed to encode JSON")
         }
@@ -719,22 +721,22 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     
     func sharedata(){
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("log.txt")
-
-
+        
+        
         let fileURL = NSURL(fileURLWithPath: filename.path)
-
+        
         // Create the Array which includes the files you want to share
         var filesToShare = [Any]()
-
+        
         // Add the path of the file to the Array
         filesToShare.append(fileURL)
-       // let text = "This is some text that I want to share."
-
-             // set up activity view controller
-           //  let textToShare = [ text ]
+        // let text = "This is some text that I want to share."
+        
+        // set up activity view controller
+        //  let textToShare = [ text ]
         // Make the activityViewContoller which shows the share-view
         let activityViewController = UIActivityViewController(activityItems:filesToShare, applicationActivities: nil)
-
+        
         
         
         activityViewController.popoverPresentationController?.sourceView = self.view
@@ -757,7 +759,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     func getTapLogs () -> String? {
         
         let dateFt = DateFormatter()
-         
+        
         dateFt.dateFormat = "HH:mm:ss"
         
         var values: String = ""

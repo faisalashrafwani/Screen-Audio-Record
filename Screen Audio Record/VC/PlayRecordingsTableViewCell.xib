@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +43,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fo-as-iV2">
-                        <rect key="frame" x="204.5" y="13.5" width="105.5" height="41"/>
+                        <rect key="frame" x="241" y="25" width="64" height="18"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="Play">
                             <color key="baseBackgroundColor" red="0.54117647059999996" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,10 +59,10 @@
                     <constraint firstItem="KHj-ZU-rrI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DWs-Oy-QS2"/>
                     <constraint firstItem="fVw-lr-N5E" firstAttribute="height" secondItem="KHj-ZU-rrI" secondAttribute="height" multiplier="0.632653" id="Ins-tk-7s5"/>
                     <constraint firstItem="2fo-as-iV2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QpX-NN-yyG"/>
-                    <constraint firstItem="2fo-as-iV2" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="dqQ-1R-rdh"/>
-                    <constraint firstItem="2fo-as-iV2" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.33" id="dxa-8f-g4d"/>
+                    <constraint firstItem="2fo-as-iV2" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.27" id="dqQ-1R-rdh"/>
+                    <constraint firstItem="2fo-as-iV2" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="dxa-8f-g4d"/>
                     <constraint firstItem="KHj-ZU-rrI" firstAttribute="leading" secondItem="fVw-lr-N5E" secondAttribute="trailing" constant="30" id="ejn-E1-LQr"/>
-                    <constraint firstAttribute="trailing" secondItem="2fo-as-iV2" secondAttribute="trailing" constant="10" id="nFI-l7-RSz"/>
+                    <constraint firstAttribute="trailing" secondItem="2fo-as-iV2" secondAttribute="trailing" multiplier="1.05" id="nFI-l7-RSz"/>
                     <constraint firstItem="fVw-lr-N5E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yMg-gp-ByF"/>
                 </constraints>
             </tableViewCellContentView>
