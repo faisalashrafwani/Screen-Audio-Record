@@ -31,6 +31,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var starterParentView: UIView!
     @IBOutlet weak var starterView: UIView!
     @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var rippleAnimationView: AnimationView!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var recordView: UIView!
     var counter = 0
@@ -62,6 +63,7 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
         
         
         animationView.isHidden = true
+        rippleAnimationView.isHidden = true
         counterLabel.isHidden = true
         UIApplication.shared.isIdleTimerDisabled = true
         actionButton.isEnabled = false
@@ -137,6 +139,22 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
     }
     
     
+    //TODO: SETUP RIPPLE ANIMATION
+    func setupRippleAnimation () {
+        rippleAnimationView.isHidden = false
+        rippleAnimationView.animation = Animation.named("grayRipple")
+        rippleAnimationView.contentMode = .scaleAspectFit
+        rippleAnimationView.loopMode = .playOnce
+        rippleAnimationView.animationSpeed = 2
+        rippleAnimationView.layer.opacity = 0.4
+        
+        rippleAnimationView.play(completion: { _ in
+            self.rippleAnimationView.isHidden = true
+        })
+//        rippleAnimationView.isHidden = true
+    }
+    
+    
     // TODO: SETTING UP RECORDING SESSION
     func setupRecorderSession() {
         recordingSession = AVAudioSession.sharedInstance()
@@ -194,6 +212,8 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             let url = Bundle.main.url(forResource: "beeeep", withExtension: "mp3")
             audioPlayer = try! AVAudioPlayer(contentsOf: url!)
             audioPlayer.play()
+            
+            setupRippleAnimation()
         }
         
     }

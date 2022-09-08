@@ -37,6 +37,11 @@
 		8491935428AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8491935228AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib */; };
 		8499250A28B779C5006866A7 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499250828B779C5006866A7 /* MediaPlayerViewController.swift */; };
 		8499250B28B779C5006866A7 /* MediaPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8499250928B779C5006866A7 /* MediaPlayerViewController.xib */; };
+		84BF1EB728C9BBD20010B409 /* rippleTouch.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EB628C9BBD20010B409 /* rippleTouch.json */; };
+		84BF1EB928C9C6430010B409 /* ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EB828C9C6420010B409 /* ripple.json */; };
+		84BF1EBB28C9CA9F0010B409 /* blueRipples.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EBA28C9CA9F0010B409 /* blueRipples.json */; };
+		84BF1EBD28C9CB4E0010B409 /* lightRipple.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EBC28C9CB4E0010B409 /* lightRipple.json */; };
+		84BF1EBF28C9CC540010B409 /* grayRipple.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EBE28C9CC530010B409 /* grayRipple.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		8491935228AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayRecordingsTableViewCell.xib; sourceTree = "<group>"; };
 		8499250828B779C5006866A7 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		8499250928B779C5006866A7 /* MediaPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaPlayerViewController.xib; sourceTree = "<group>"; };
+		84BF1EB628C9BBD20010B409 /* rippleTouch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rippleTouch.json; sourceTree = "<group>"; };
+		84BF1EB828C9C6420010B409 /* ripple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ripple.json; sourceTree = "<group>"; };
+		84BF1EBA28C9CA9F0010B409 /* blueRipples.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blueRipples.json; sourceTree = "<group>"; };
+		84BF1EBC28C9CB4E0010B409 /* lightRipple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lightRipple.json; sourceTree = "<group>"; };
+		84BF1EBE28C9CC530010B409 /* grayRipple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grayRipple.json; sourceTree = "<group>"; };
 		B182E4AFE1C4107A04DD7BCA /* Pods-Screen Audio Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen Audio Record.debug.xcconfig"; path = "Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record.debug.xcconfig"; sourceTree = "<group>"; };
 		C223F0A6039DE948FEA4DE2A /* Pods_Screen_Audio_Record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Screen_Audio_Record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +118,11 @@
 				0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */,
 				0D0221F228B61B7A00B6E2A4 /* start_animation.json */,
 				0D0221F428B6367800B6E2A4 /* wave.json */,
+				84BF1EB628C9BBD20010B409 /* rippleTouch.json */,
+				84BF1EB828C9C6420010B409 /* ripple.json */,
+				84BF1EBA28C9CA9F0010B409 /* blueRipples.json */,
+				84BF1EBC28C9CB4E0010B409 /* lightRipple.json */,
+				84BF1EBE28C9CC530010B409 /* grayRipple.json */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -255,20 +270,25 @@
 				0DD8AD5D28ACC58E00823911 /* TapGestureViewController.xib in Resources */,
 				8499250B28B779C5006866A7 /* MediaPlayerViewController.xib in Resources */,
 				0D0221F928BE43CF00B6E2A4 /* recordedCompleted.mp3 in Resources */,
+				84BF1EB928C9C6430010B409 /* ripple.json in Resources */,
 				8491935028AE298B006B4012 /* PlayRecordingsViewController.xib in Resources */,
 				0D72C1EF28ACD9F200F5AB77 /* RecordViewController.xib in Resources */,
+				84BF1EB728C9BBD20010B409 /* rippleTouch.json in Resources */,
 				845E6AF328A79A0100E3DC07 /* recordingStopped.mp3 in Resources */,
 				0D0221F528B6367800B6E2A4 /* wave.json in Resources */,
 				0DD8AD5028ACBA0A00823911 /* MainViewController.xib in Resources */,
 				0D0221F328B61B7A00B6E2A4 /* start_animation.json in Resources */,
 				8491935428AE2AC6006B4012 /* PlayRecordingsTableViewCell.xib in Resources */,
+				84BF1EBF28C9CC540010B409 /* grayRipple.json in Resources */,
 				0DF8EC4328B4FC3500EC75BB /* beeeep.mp3 in Resources */,
 				0DF8EC4128B4FADD00EC75BB /* beeep.mp3 in Resources */,
+				84BF1EBD28C9CB4E0010B409 /* lightRipple.json in Resources */,
 				845E6AE828A75E8800E3DC07 /* LaunchScreen.storyboard in Resources */,
 				0DD8AD5928ACC18B00823911 /* MotionViewController.xib in Resources */,
 				845E6AE528A75E8800E3DC07 /* Assets.xcassets in Resources */,
 				845E6AE328A75E8400E3DC07 /* Main.storyboard in Resources */,
 				0D72C1EB28ACD4DA00F5AB77 /* ShakeViewController.xib in Resources */,
+				84BF1EBB28C9CA9F0010B409 /* blueRipples.json in Resources */,
 				845E6AF228A79A0100E3DC07 /* recordingNow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
