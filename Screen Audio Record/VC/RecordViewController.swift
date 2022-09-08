@@ -195,6 +195,8 @@ class RecordViewController:  UIViewController, AVAudioRecorderDelegate {
             audioPlayer = try! AVAudioPlayer(contentsOf: url!)
             audioPlayer.play()
             
+            
+            
         }
         
     }

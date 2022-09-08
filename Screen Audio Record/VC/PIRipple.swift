@@ -36,8 +36,8 @@ public class Ripple {
         public var borderWidth = CGFloat(10.0)
         public var radius = CGFloat(100.0)
         public var duration = CFTimeInterval(0.4)
-        public var borderColor = UIColor.white
-        public var fillColor = UIColor.systemPink
+        public var borderColor = UIColor.black
+        public var fillColor = UIColor.lightGray
         public var scale = CGFloat(5.0)
         public var isRunSuperView = true
     }
