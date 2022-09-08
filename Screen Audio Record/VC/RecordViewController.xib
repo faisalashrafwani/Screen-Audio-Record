@@ -28,7 +28,6 @@
                 <outlet property="instructionTV" destination="7iG-q4-ZhP" id="3Fv-vt-Xck"/>
                 <outlet property="playSavedRecordingButton" destination="n0o-Ms-eXM" id="IPC-mD-9DE"/>
                 <outlet property="recordView" destination="uuk-bF-1x9" id="iIC-Sz-1YU"/>
-                <outlet property="rippleAnimationView" destination="gNR-eh-H22" id="qOy-iW-4be"/>
                 <outlet property="startTimeView" destination="xLG-sK-6Ke" id="V6j-zI-Tqx"/>
                 <outlet property="starterLabelView" destination="UpV-jp-FVH" id="f8B-1q-aVZ"/>
                 <outlet property="starterParentView" destination="0Dg-km-Okm" id="bCe-w5-TLP"/>
@@ -87,7 +86,7 @@
                         <constraint firstItem="DxS-2G-SI6" firstAttribute="centerX" secondItem="0Dg-km-Okm" secondAttribute="centerX" id="hHT-Ce-mr8"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuk-bF-1x9">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuk-bF-1x9" customClass="RippleView" customModule="Screen_Audio_Record" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="24" width="1024" height="1322"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w31-R4-f0z" userLabel="animationView" customClass="AnimationView" customModule="Lottie">
@@ -99,13 +98,6 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="start_animation"/>
                             </userDefinedRuntimeAttributes>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNR-eh-H22" customClass="AnimationView" customModule="Lottie">
-                            <rect key="frame" x="0.0" y="149" width="1024" height="1024"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="gNR-eh-H22" secondAttribute="height" multiplier="1:1" id="sd6-ig-FPZ"/>
-                            </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvs-AD-PMf">
                             <rect key="frame" x="205" y="1140" width="614" height="100"/>
@@ -132,17 +124,14 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bj7-oW-yZv" firstAttribute="height" secondItem="uuk-bF-1x9" secondAttribute="height" multiplier="0.0230312" id="1OU-gX-8bs"/>
-                        <constraint firstItem="gNR-eh-H22" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" id="1bK-Ql-6Ma"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.6" id="3gn-Zq-fN7"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="3tX-bd-xew"/>
                         <constraint firstItem="Mvs-AD-PMf" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.8" id="BeP-B7-2T5"/>
                         <constraint firstItem="w31-R4-f0z" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="CuC-Ss-HKu"/>
                         <constraint firstItem="bj7-oW-yZv" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" multiplier="1.8" id="Jzj-7d-N8N"/>
-                        <constraint firstItem="gNR-eh-H22" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" id="QkD-92-RpG"/>
                         <constraint firstItem="w31-R4-f0z" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.6" id="UGf-nW-Is5"/>
                         <constraint firstItem="w31-R4-f0z" firstAttribute="centerY" secondItem="uuk-bF-1x9" secondAttribute="centerY" id="UH6-qh-leK"/>
                         <constraint firstItem="bj7-oW-yZv" firstAttribute="width" secondItem="uuk-bF-1x9" secondAttribute="width" multiplier="0.4" id="eOJ-nK-ub1"/>
-                        <constraint firstItem="gNR-eh-H22" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="j5i-QU-pj0"/>
                         <constraint firstItem="bj7-oW-yZv" firstAttribute="centerX" secondItem="uuk-bF-1x9" secondAttribute="centerX" id="nl7-58-BO9"/>
                     </constraints>
                 </view>

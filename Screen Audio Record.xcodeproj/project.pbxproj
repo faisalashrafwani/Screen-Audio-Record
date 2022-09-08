@@ -42,6 +42,8 @@
 		84BF1EBB28C9CA9F0010B409 /* blueRipples.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EBA28C9CA9F0010B409 /* blueRipples.json */; };
 		84BF1EBD28C9CB4E0010B409 /* lightRipple.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EBC28C9CB4E0010B409 /* lightRipple.json */; };
 		84BF1EBF28C9CC540010B409 /* grayRipple.json in Resources */ = {isa = PBXBuildFile; fileRef = 84BF1EBE28C9CC530010B409 /* grayRipple.json */; };
+		84BF1EC528C9E3140010B409 /* PIRipple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF1EC428C9E3140010B409 /* PIRipple.swift */; };
+		84BF1EC728C9E3560010B409 /* RippleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF1EC628C9E3560010B409 /* RippleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		84BF1EBA28C9CA9F0010B409 /* blueRipples.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blueRipples.json; sourceTree = "<group>"; };
 		84BF1EBC28C9CB4E0010B409 /* lightRipple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lightRipple.json; sourceTree = "<group>"; };
 		84BF1EBE28C9CC530010B409 /* grayRipple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grayRipple.json; sourceTree = "<group>"; };
+		84BF1EC428C9E3140010B409 /* PIRipple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIRipple.swift; sourceTree = "<group>"; };
+		84BF1EC628C9E3560010B409 /* RippleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleView.swift; sourceTree = "<group>"; };
 		B182E4AFE1C4107A04DD7BCA /* Pods-Screen Audio Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen Audio Record.debug.xcconfig"; path = "Target Support Files/Pods-Screen Audio Record/Pods-Screen Audio Record.debug.xcconfig"; sourceTree = "<group>"; };
 		C223F0A6039DE948FEA4DE2A /* Pods_Screen_Audio_Record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Screen_Audio_Record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +120,8 @@
 				0D72C1E928ACD4DA00F5AB77 /* ShakeViewController.xib */,
 				0D72C1EC28ACD9F200F5AB77 /* RecordViewController.swift */,
 				0D72C1ED28ACD9F200F5AB77 /* RecordViewController.xib */,
+				84BF1EC428C9E3140010B409 /* PIRipple.swift */,
+				84BF1EC628C9E3560010B409 /* RippleView.swift */,
 				0D0221F228B61B7A00B6E2A4 /* start_animation.json */,
 				0D0221F428B6367800B6E2A4 /* wave.json */,
 				84BF1EB628C9BBD20010B409 /* rippleTouch.json */,
@@ -352,7 +358,9 @@
 				845E6ADC28A75E8400E3DC07 /* AppDelegate.swift in Sources */,
 				845E6ADE28A75E8400E3DC07 /* SceneDelegate.swift in Sources */,
 				0DD8AD4F28ACBA0A00823911 /* MainViewController.swift in Sources */,
+				84BF1EC528C9E3140010B409 /* PIRipple.swift in Sources */,
 				8491934F28AE298B006B4012 /* PlayRecordingsViewController.swift in Sources */,
+				84BF1EC728C9E3560010B409 /* RippleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
